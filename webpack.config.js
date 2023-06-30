@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require("path");
 
 module.exports = {
@@ -51,6 +52,12 @@ module.exports = {
 
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/json/cards.json", to: "cards.json" },
+        { from: "src/images", to: "images" }
+      ]
     }),
   ],
 

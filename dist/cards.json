@@ -3,50 +3,50 @@
         {
             "category": "Actions (set A)",
             "image": "img/actions1.jpg",
-            "icon": "icons/actions1.png",
+            "icon": "images/actions1.png",
             "idx": 1
 
         },
         {
             "category": "Actions (set B)",
             "image": "img/actions2.jpg",
-            "icon": "icons/actions2.png",
+            "icon": "images/actions2.png",
             "idx": 2
         },
         {
             "category": "Animals (set A)",
             "image": "img/animals1.jpg",
-            "icon": "icons/animals1.png",
+            "icon": "images/animals1.png",
             "idx": 3
         },
         {
             "category": "Animals (set B)",
             "image": "img/animals2.jpg",
-            "icon": "icons/animals2.png",
+            "icon": "images/animals2.png",
             "idx": 4
         },
         {
             "category": "Clothes",
             "image": "img/clothes.jpg",
-            "icon": "icons/clothes.png",
+            "icon": "images/clothes.png",
             "idx": 5
         },
         {
             "category": "Emotions",
             "image": "img/emotions.jpg",
-            "icon": "icons/emotions.png",
+            "icon": "images/emotions.png",
             "idx": 6
         },
         {
             "category": "Transport",
             "image": "img/transport.jpg",
-            "icon": "icons/transport.png",
+            "icon": "images/transport.png",
             "idx": 7
         },
         {
             "category": "Weather",
             "image": "img/weather.jpg",
-            "icon": "icons/weather.png",
+            "icon": "images/weather.png",
             "idx": 8
         }
     ],

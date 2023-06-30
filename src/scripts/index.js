@@ -1,30 +1,19 @@
-import '../styles/main.css';
-
-const dom = {
-  burger: document.querySelector('#burger__menu'),
-  menu: document.querySelector('#menu__wrapper'),
-  mode: document.querySelector('.mode')
+import "../styles/common.css";
+import "../styles/header.css";
+import {showBurgerMenu, clickModeButton, closeBurgerMenu} from './burger_menu.js';
+import fetch from './get_data.js';
+import {getData} from './get_data.js';
+export const dom = {
+  burger: document.querySelector("#burger__menu"),
+  menu: document.querySelector("#menu__wrapper"),
+  mode: document.querySelector(".mode"),
+  menuList: document.querySelector("ul"),
 };
 
-function showBurgerMenu() {
-  dom.burger.classList.toggle('active__menu');
-  dom.menu.classList.toggle('active__menu');
-}
+dom.menu.addEventListener("click", closeBurgerMenu);
 
-function clickModeButton() {
-  dom.mode.classList.toggle('play');
-}
+dom.burger.addEventListener("click", showBurgerMenu);
 
-function closeBurgerMenu(evt) {
-  const elem = evt.target;
-  if (!elem.closest('nav')) {
-      dom.burger.classList.remove('active__menu');
-      dom.menu.classList.remove('active__menu');
-  }
-}
+dom.mode.addEventListener("click", clickModeButton);
 
-dom.menu.addEventListener('click', closeBurgerMenu);
-
-dom.burger.addEventListener('click', showBurgerMenu);
-
-dom.mode.addEventListener('click', clickModeButton);
+getData();

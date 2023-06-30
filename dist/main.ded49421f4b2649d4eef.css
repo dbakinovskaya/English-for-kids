@@ -1,9 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
-
+/*!*******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/common.css ***!
+  \*******************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap);
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/common.css (1) ***!
+  \***********************************************************************************************************************/
 * {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    -webkit-text-decoration: none;
     text-decoration: none;
     list-style: none;
 }
@@ -14,17 +21,42 @@ body {
     background-color: rgb(137, 59, 255);
 }
 
+@media screen and (max-width: 720px) {
+    body {
+        padding: 0px 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        padding: 0px 10px;
+    }
+}
+/*!*******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/header.css ***!
+  \*******************************************************************************************************************/
+
+
 header {
     margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 h1 {
 
+    width: -webkit-fit-content;
+
+    width: -moz-fit-content;
+
     width: fit-content;
     text-align: center;
     margin: 0px auto;
+    -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
 }
 h1 a {
@@ -42,6 +74,7 @@ h1 a:hover {
 #burger__menu {
     position: relative;
     width: 45px;
+    -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     z-index: 101;
 }
@@ -52,13 +85,16 @@ h1 a:hover {
     border: 2.5px solid #ffffff;
     margin: 8px 0;
     border-radius: 10px;
+    -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     background-color: #ffffff;
 }
 
 #burger__menu.active__menu {
+    -webkit-transition: all .4s ease;
     transition: all .4s ease;
-    transform: translateX(155px);
+    -webkit-transform: translateX(155px);
+            transform: translateX(155px);
 }
 
 #burger__menu:hover {
@@ -77,13 +113,15 @@ h1 a:hover {
 #burger__menu.active__menu .line:nth-child(1) {
     position: absolute;
     top: 0px;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
 }
 
 #burger__menu.active__menu .line:nth-child(3) {
     position: absolute;
     bottom: 0px;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
 }
 
 .mode__wrapper {
@@ -100,10 +138,18 @@ h1 a:hover {
     padding: 0px 3px;
     font-size: 13px;
     color: #ffffff;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: no-wrap;
-    align-items: center;
+    -ms-flex-wrap: no-wrap;
+        flex-wrap: no-wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
 
 }
@@ -118,7 +164,8 @@ h1 a:hover {
 }
 
 .mode.play {
-    transform: translateX(-35px);
+    -webkit-transform: translateX(-35px);
+            transform: translateX(-35px);
 }
 
 .mode__wrapper:hover, .stats:hover {
@@ -143,6 +190,7 @@ nav {
     z-index: -100;
     padding-top: 72px;
     width: 250px;
+    -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     overflow-y: auto;
 }
@@ -173,6 +221,7 @@ li {
     padding: 10px;
     margin: 5px;
     border-radius: 5px;
+    -webkit-transition: all .2s ease;
     transition: all .2s ease;
 }
 
@@ -188,6 +237,7 @@ li a {
     display: block;
     font-size: 18px;
     color: #ffffff;
+    -webkit-transition: all .2s ease;
     transition: all .2s ease;
 }
 
@@ -201,10 +251,6 @@ li:hover a {
 }
 
 @media screen and (max-width: 720px) {
-    body {
-        padding: 0px 20px;
-    }
-
     h1 a {
         font-size: 37px;
     }
@@ -218,7 +264,8 @@ li:hover a {
     }
 
     #burger__menu.active__menu {
-        transform: translateX(185px);
+        -webkit-transform: translateX(185px);
+                transform: translateX(185px);
     }
 
     .mode__wrapper {
@@ -239,7 +286,8 @@ li:hover a {
     }
 
     .mode.play {
-        transform: translateX(-21px);
+        -webkit-transform: translateX(-21px);
+                transform: translateX(-21px);
     }
 
     .stats {
@@ -249,9 +297,6 @@ li:hover a {
 }
 
 @media screen and (max-width: 400px) {
-    body {
-        padding: 0px 10px;
-    }
 
     header {
         height: 37px;
@@ -266,7 +311,8 @@ li:hover a {
     }
 
     #burger__menu.active__menu {
-        transform: translateX(195px);
+        -webkit-transform: translateX(195px);
+                transform: translateX(195px);
     }
 
     nav {
@@ -291,7 +337,8 @@ li:hover a {
     }
 
     .mode.play {
-        transform: translateX(-21px);
+        -webkit-transform: translateX(-21px);
+                transform: translateX(-21px);
     }
 
     .stats {
