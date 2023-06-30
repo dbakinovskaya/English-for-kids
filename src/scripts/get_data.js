@@ -1,4 +1,4 @@
-import { renderMenuList } from './category_page.js';
+import { renderMainPage } from './category_page.js';
 
 const cardData = [];
 
@@ -8,7 +8,7 @@ async function getData() {
     .then(cards => cards.forEach((card) => {
       cardData.push(card)
     }))
-    renderMenuList(cardData[0])
+    renderMainPage(cardData[0]);
 }
 
 export { cardData, getData };

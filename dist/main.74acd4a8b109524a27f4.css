@@ -15,10 +15,18 @@
     list-style: none;
 }
 
+img {
+    pointer-events: none;
+}
+
 body {
     padding: 0px 40px;
     min-width: 320px;
     background-color: rgb(137, 59, 255);
+}
+
+.open__burger {
+    overflow: hidden;
 }
 
 @media screen and (max-width: 720px) {
@@ -187,7 +195,7 @@ nav {
     left: -250px;
     bottom: 0;
     background-color: rgb(76, 0, 121);
-    z-index: -100;
+    z-index: 100;
     padding-top: 72px;
     width: 250px;
     -webkit-transition: all 0.3s ease-out;
@@ -246,6 +254,15 @@ li:hover {
 }
 
 li:hover a {
+    color: rgb(76, 0, 121);
+    font-size: 20px;
+}
+
+.active__link, .active__link:hover {
+    background-color: #ffffff;
+}
+
+.active__link a, .active__link a:hover {
     color: rgb(76, 0, 121);
     font-size: 20px;
 }
@@ -346,3 +363,119 @@ li:hover a {
         padding: 5px 4.24px;
     }
 }
+/*!***************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/category_cards.css ***!
+  \***************************************************************************************************************************/
+.card__wrapper {
+  z-index: -5;
+  max-width: 1280px;
+  margin: 50px auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 40px 20px;
+  gap: 40px 20px;
+}
+
+.card__wrapper div:hover {
+  cursor: pointer;
+  -webkit-transform: translateY(-5px) scale(1.005) translateZ(0);
+          transform: translateY(-5px) scale(1.005) translateZ(0);
+  -webkit-box-shadow: 5px 6px 17px rgb(223, 201, 255);
+          box-shadow: 5px 6px 17px rgb(223, 201, 255);
+}
+
+.card__wrapper div {
+  margin: 0px auto;
+  width: 250px;
+  height: 250px;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
+          box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
+  border-radius: 15px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.card__wrapper div img {
+  width: 190px;
+}
+
+.card__wrapper div p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 10px auto;
+  font-size: 25px;
+  color: rgb(76, 0, 121);
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1140px) {
+  .card__wrapper div {
+    width: 200px;
+    height: 200px;
+  }
+
+  .card__wrapper div img {
+    width: 140px;
+  }
+
+  .card__wrapper div p {
+    margin: 15px auto;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .card__wrapper {
+    gap: 20px;
+  }
+
+  .card__wrapper div {
+    padding: 5px 10px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .card__wrapper div img {
+    width: 120px;
+  }
+
+  .card__wrapper div p {
+    margin: 5px auto;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .card__wrapper {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card__wrapper div {
+    padding: 5px 7.5px;
+    width: 115px;
+    height: 115px;
+  }
+
+  .card__wrapper div img {
+    width: 100px;
+  }
+
+  .card__wrapper div p {
+    margin: 0px auto;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card__wrapper {
+    grid-template-columns: auto auto;
+    gap: 20px;
+  }
+}
+
