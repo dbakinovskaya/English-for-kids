@@ -1,7 +1,6 @@
-
-
 header {
     margin-top: 10px;
+    margin-bottom: 100px;
     display: flex;
     align-items: center;
 }
@@ -103,7 +102,7 @@ h1 a:hover {
 
 }
 
-.mode.play {
+.mode__wrapper.play .mode {
     transform: translateX(-35px);
 }
 
@@ -118,6 +117,41 @@ h1 a:hover {
     font-size: 13px;
     color: #ffffff;
     padding: 7.5px 9.75px;
+}
+
+.control__btn {
+    position: absolute;
+    top: 95px;
+    right: 50%;
+    transform: translateX(50%);
+    visibility: hidden;
+}
+
+.play .control__btn {
+    visibility: visible;
+}
+
+.control__btn button {
+    font-family:'Dancing Script', cursive;
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: rgb(13, 190, 42);
+    padding: 10px;
+    border: 0px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 1px rgba(50, 185, 5, 0.479);
+    transition: all .2s ease;
+}
+
+.control__btn button:hover {
+    background-color: rgba(59, 228, 87, 0.927);
+    cursor: pointer;
+}
+
+.control__btn button:active {
+    transform: translateY(1px);
+    box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
 }
 
 nav {
@@ -196,6 +230,10 @@ li:hover a {
 }
 
 @media screen and (max-width: 720px) {
+    header {
+        margin-bottom: 60px;
+    }
+
     h1 a {
         font-size: 37px;
     }
@@ -229,8 +267,17 @@ li:hover a {
         margin: 0px 2px;
     }
 
-    .mode.play {
+    .mode__wrapper.play .mode {
         transform: translateX(-21px);
+    }
+
+    .control__btn {
+        top: 65px;
+    }
+
+    .control__btn button {
+        font-size: 20px;
+        padding: 5px;
     }
 
     .stats {
@@ -278,8 +325,17 @@ li:hover a {
         margin: 0px 2px;
     }
 
-    .mode.play {
+    .mode__wrapper.play .mode {
         transform: translateX(-21px);
+    }
+
+    .control__btn {
+        top: 56px;
+    }
+
+    .control__btn button {
+        font-size: 17px;
+        padding: 5px;
     }
 
     .stats {
