@@ -1,6 +1,7 @@
 import "../styles/common.css";
 import "../styles/header.css";
 import "../styles/category_cards.css";
+import "../styles/word_cards.css";
 
 import {showBurgerMenu, clickModeButton, closeBurgerMenu} from './burger_menu.js';
 import {getData} from './get_data.js';

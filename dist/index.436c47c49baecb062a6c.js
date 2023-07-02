@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   dom: () => (/* binding */ dom)\n/* harmony export */ });\n/* harmony import */ var _styles_common_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/common.css */ \"./src/styles/common.css\");\n/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/header.css */ \"./src/styles/header.css\");\n/* harmony import */ var _styles_category_cards_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/category_cards.css */ \"./src/styles/category_cards.css\");\n/* harmony import */ var _burger_menu_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./burger_menu.js */ \"./src/scripts/burger_menu.js\");\n/* harmony import */ var _get_data_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./get_data.js */ \"./src/scripts/get_data.js\");\n\n\n\n\n\nvar dom = {\n  body: document.querySelector(\"body\"),\n  burger: document.querySelector(\"#burger__menu\"),\n  menu: document.querySelector(\"#menu__wrapper\"),\n  mode: document.querySelector(\".mode__wrapper\"),\n  modeButton: document.querySelector(\".mode\"),\n  menuList: document.querySelector(\"ul\"),\n  cardWrapper: document.querySelector(\".card__wrapper\")\n};\ndom.menu.addEventListener(\"click\", _burger_menu_js__WEBPACK_IMPORTED_MODULE_3__.closeBurgerMenu);\ndom.burger.addEventListener(\"click\", _burger_menu_js__WEBPACK_IMPORTED_MODULE_3__.showBurgerMenu);\ndom.modeButton.addEventListener(\"click\", _burger_menu_js__WEBPACK_IMPORTED_MODULE_3__.clickModeButton);\n(0,_get_data_js__WEBPACK_IMPORTED_MODULE_4__.getData)();\n\n//# sourceURL=webpack://english-for-kids/./src/scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   dom: () => (/* binding */ dom)\n/* harmony export */ });\n/* harmony import */ var _styles_common_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/common.css */ \"./src/styles/common.css\");\n/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/header.css */ \"./src/styles/header.css\");\n/* harmony import */ var _styles_category_cards_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../styles/category_cards.css */ \"./src/styles/category_cards.css\");\n/* harmony import */ var _styles_word_cards_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../styles/word_cards.css */ \"./src/styles/word_cards.css\");\n/* harmony import */ var _burger_menu_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./burger_menu.js */ \"./src/scripts/burger_menu.js\");\n/* harmony import */ var _get_data_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./get_data.js */ \"./src/scripts/get_data.js\");\n\n\n\n\n\n\nvar dom = {\n  body: document.querySelector(\"body\"),\n  burger: document.querySelector(\"#burger__menu\"),\n  menu: document.querySelector(\"#menu__wrapper\"),\n  mode: document.querySelector(\".mode__wrapper\"),\n  modeButton: document.querySelector(\".mode\"),\n  menuList: document.querySelector(\"ul\"),\n  cardWrapper: document.querySelector(\".card__wrapper\")\n};\ndom.menu.addEventListener(\"click\", _burger_menu_js__WEBPACK_IMPORTED_MODULE_4__.closeBurgerMenu);\ndom.burger.addEventListener(\"click\", _burger_menu_js__WEBPACK_IMPORTED_MODULE_4__.showBurgerMenu);\ndom.modeButton.addEventListener(\"click\", _burger_menu_js__WEBPACK_IMPORTED_MODULE_4__.clickModeButton);\n(0,_get_data_js__WEBPACK_IMPORTED_MODULE_5__.getData)();\n\n//# sourceURL=webpack://english-for-kids/./src/scripts/index.js?");
 
 /***/ }),
 
@@ -77,6 +77,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://english-for-kids/./src/styles/header.css?");
+
+/***/ }),
+
+/***/ "./src/styles/word_cards.css":
+/*!***********************************!*\
+  !*** ./src/styles/word_cards.css ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://english-for-kids/./src/styles/word_cards.css?");
 
 /***/ })
 

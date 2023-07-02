@@ -540,3 +540,85 @@ li:hover a {
   }
 }
 
+/*!***********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/word_cards.css ***!
+  \***********************************************************************************************************************/
+.word__wrapper {
+  z-index: -5;
+  max-width: 1280px;
+  margin: 50px auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+
+.word__wrapper div {
+  position: relative;
+  margin: 20px auto;
+  width: 350px;
+  height: 300px;
+  padding: 15px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
+          box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
+  border-radius: 15px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.word:hover {
+  cursor: pointer;
+}
+
+.word figure img {
+  width: 100%;
+  border-radius: 13px 15px 0 0;
+}
+
+.word figure figcaption {
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.pronounce {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  opacity: 0;
+}
+
+.word:hover .pronounce {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.rotate {
+  border: 0px;
+  background-color: rgba(255,255,255,0);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 10px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.rotate img {
+  color: white;
+  width: 32px;
+}
+
+.rotate:hover {
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+  cursor: pointer;
+}
+
