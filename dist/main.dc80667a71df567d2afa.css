@@ -511,8 +511,19 @@ li:hover {
   -webkit-box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
           box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
   border-radius: 15px;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+ .rotated, .rotated figure {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+}
+
+.rotated .pronounce, .rotated .rotate {
+  display: none;
 }
 
 .word:hover {
@@ -520,6 +531,8 @@ li:hover {
 }
 
 .word figure img {
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
   width: 100%;
   border-radius: 13px 15px 0 0;
 }
@@ -528,6 +541,18 @@ li:hover {
   font-size: 40px;
   text-align: center;
   letter-spacing: 3px;
+}
+
+.word .russian, .word.rotated .english {
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+.rotated .english, .rotated .russian {
+  opacity: 1;
+  height: 100%;
+  overflow: hidden;
 }
 
 .pronounce {

@@ -7,7 +7,16 @@
   background-color: #ffffff;
   box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
   border-radius: 15px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+ .rotated, .rotated figure {
+  transform: rotateY(180deg);
+  transition: all .5s ease;
+}
+
+.rotated .pronounce, .rotated .rotate {
+  display: none;
 }
 
 .word:hover {
@@ -15,6 +24,7 @@
 }
 
 .word figure img {
+  transition: all .5s ease;
   width: 100%;
   border-radius: 13px 15px 0 0;
 }
@@ -23,6 +33,18 @@
   font-size: 40px;
   text-align: center;
   letter-spacing: 3px;
+}
+
+.word .russian, .word.rotated .english {
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+.rotated .english, .rotated .russian {
+  opacity: 1;
+  height: 100%;
+  overflow: hidden;
 }
 
 .pronounce {

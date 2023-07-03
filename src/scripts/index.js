@@ -6,7 +6,7 @@ import "../styles/word_cards.css";
 import { showBurgerMenu, clickModeButton, closeBurgerMenu } from './burger_menu.js';
 import { getData, cardData } from './get_data.js';
 import { renderMainPage } from "./category_page.js";
-import { renderWordCards } from "./word_card.js";
+import { renderWordCards, playPronounce, rotateCard, rotateCardBack } from "./word_card.js";
 
 
 export const dom = {
@@ -32,5 +32,9 @@ dom.burger.addEventListener("click", showBurgerMenu);
 dom.modeButton.addEventListener("click", clickModeButton);
 
 dom.content.addEventListener("click", renderWordCards);
+
+dom.cardWrapper.addEventListener("click", playPronounce);
+
+dom.cardWrapper.addEventListener("click", rotateCard);
 
 getData();
