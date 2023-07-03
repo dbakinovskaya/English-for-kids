@@ -56,7 +56,9 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "src/json/cards.json", to: "cards.json" },
-        { from: "src/images", to: "images" }
+        { from: "src/images", to: "images" },
+        { from: "src/icons", to: "icons" },
+        { from: "src/audio", to: "audio" },
       ]
     }),
   ],

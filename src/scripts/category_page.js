@@ -1,24 +1,32 @@
 import { dom } from "./index.js";
+import { highlightActiveCategory } from "./burger_menu.js";
 
-export function renderMainPage(list) {
+function renderMainPage(list) {
+  dom.cardWrapper.innerHTML = "";
   list.forEach((item) => {
-    dom.menuList.innerHTML += buildMenuItem(item);
     dom.cardWrapper.innerHTML += buildCategoryCard(item);
   });
+  highlightActiveCategory('0');
+}
+
+function renderMenuList(list) {
+  list.forEach((item) => {
+    dom.menuList.innerHTML += buildMenuItem(item);
+  })
 }
 
 function buildMenuItem(item) {
   return `<li data-idx="${item.idx}">
-        <a href="#">
-            <img src="${item.icon}" alt="logo of category"/>
-            ${item.category}
-        </a>
-    </li>`;
+      <img src="${item.icon}" alt="logo of category"/>
+      ${item.category}
+  </li>`;
 }
 
 function buildCategoryCard(card) {
-  return `<div data-idx="${card.idx}">
+  return `<div class="category" data-idx="${card.idx}">
       <img src="${card.image}" alt="category image">
       <p>${card.category}</p>
     </div>`;
 }
+
+export { renderMainPage, renderMenuList };

@@ -65,15 +65,13 @@ h1 {
     margin: 0px auto;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-}
-h1 a {
     font-size: 60px;
     font-family: 'Dancing Script', cursive;
     color: #ffffff;
     text-shadow: 0px 3px 3px #000000;
 }
 
-h1 a:hover {
+h1:hover {
     color: rgb(223, 201, 255);
     cursor: pointer;
 }
@@ -243,6 +241,7 @@ nav {
 }
 
 #menu__wrapper.active__menu {
+    z-index: 100;
     position: absolute;
     top: 0;
     left: 0;
@@ -270,9 +269,12 @@ li {
     border-radius: 5px;
     -webkit-transition: all .2s ease;
     transition: all .2s ease;
+    font-size: 18px;
+    color: #ffffff;
+    transition: all .2s ease;
 }
 
-a img {
+li img {
     display: inline-block;
     vertical-align: middle;
     padding-right: 10px;
@@ -280,19 +282,8 @@ a img {
 
 }
 
-li a {
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    -webkit-transition: all .2s ease;
-    transition: all .2s ease;
-}
-
 li:hover {
     background-color: rgb(223, 201, 255);
-}
-
-li:hover a {
     color: rgb(76, 0, 121);
     font-size: 20px;
 }
@@ -301,7 +292,7 @@ li:hover a {
     background-color: #ffffff;
 }
 
-.active__link a, .active__link a:hover {
+.active__link, .active__link:hover {
     color: rgb(76, 0, 121);
     font-size: 20px;
 }
@@ -311,7 +302,7 @@ li:hover a {
         margin-bottom: 60px;
     }
 
-    h1 a {
+    h1 {
         font-size: 37px;
     }
 
@@ -368,10 +359,11 @@ li:hover a {
 @media screen and (max-width: 400px) {
 
     header {
+        margin-bottom: 40px;
         height: 37px;
     }
 
-    h1 a {
+    h1 {
         font-size: 25px;
     }
 
@@ -432,13 +424,17 @@ li:hover a {
   max-width: 1280px;
   margin: 50px auto;
   width: 100%;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 40px 20px;
-  gap: 40px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.card__wrapper div:hover {
+.category:hover {
   cursor: pointer;
   -webkit-transform: translateY(-5px) scale(1.005) translateZ(0);
           transform: translateY(-5px) scale(1.005) translateZ(0);
@@ -446,11 +442,11 @@ li:hover a {
           box-shadow: 5px 6px 17px rgb(223, 201, 255);
 }
 
-.card__wrapper div {
-  margin: 0px auto;
+.category {
+  margin: 20px;
   width: 250px;
   height: 250px;
-  padding: 15px 30px;
+  padding: 10px 15px;
   background-color: #ffffff;
   -webkit-box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
           box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
@@ -459,105 +455,53 @@ li:hover a {
   transition: all 0.2s ease;
 }
 
-.card__wrapper div img {
-  width: 190px;
+.category img {
+  width: 100%;
 }
 
-.card__wrapper div p {
+.category p {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 10px auto;
-  font-size: 25px;
+  margin: 10px auto 0px;
+  font-size: 22px;
+  letter-spacing: 2px;
   color: rgb(76, 0, 121);
   font-weight: bold;
 }
 
-@media screen and (max-width: 1140px) {
-  .card__wrapper div {
-    width: 200px;
-    height: 200px;
+@media screen and (max-width: 930px) {
+  .category {
+    margin: 10px;
+    padding: 10px;
+    width: 180px;
+    height: 180px;
   }
-
-  .card__wrapper div img {
-    width: 140px;
-  }
-
-  .card__wrapper div p {
-    margin: 15px auto;
-    font-size: 18px;
-  }
-}
-
-@media screen and (max-width: 940px) {
-  .card__wrapper {
-    gap: 20px;
-  }
-
-  .card__wrapper div {
-    padding: 5px 10px;
-    width: 140px;
-    height: 140px;
-  }
-
-  .card__wrapper div img {
-    width: 120px;
-  }
-
-  .card__wrapper div p {
+  .category p {
     margin: 5px auto;
-    font-size: 12px;
-  }
-}
-
-@media screen and (max-width: 660px) {
-  .card__wrapper {
-    grid-template-columns: auto auto auto;
+    font-size: 15px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .card__wrapper div {
+  .category {
+    margin: 10px;
     padding: 5px 7.5px;
     width: 115px;
     height: 115px;
   }
 
-  .card__wrapper div img {
-    width: 100px;
-  }
-
-  .card__wrapper div p {
+  .category p {
     margin: 0px auto;
     font-size: 10px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .card__wrapper {
-    grid-template-columns: auto auto;
-    gap: 20px 0px;
+    letter-spacing: 1px;
   }
 }
 
 /*!***********************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/word_cards.css ***!
   \***********************************************************************************************************************/
-.word__wrapper {
-  z-index: -5;
-  max-width: 1280px;
-  margin: 50px auto;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-}
-
-.word__wrapper div {
+.word {
   position: relative;
   margin: 20px auto;
   width: 350px;

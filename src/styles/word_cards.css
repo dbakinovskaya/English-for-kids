@@ -1,14 +1,4 @@
-.word__wrapper {
-  z-index: -5;
-  max-width: 1280px;
-  margin: 50px auto;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-}
-
-.word__wrapper div {
+.word {
   position: relative;
   margin: 20px auto;
   width: 350px;
