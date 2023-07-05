@@ -20,9 +20,10 @@ function renderWordCards(evt) {
 function buildWordCard(card) {
   return `<div class="word">
         <figure>
-            <img src="${card.image}" alt="${card.word}">
-            <figcaption class="english">${card.word}</figcaption>
-            <figcaption class="russian">${card.translation}</figcaption>
+          <img src="${card.image}" alt="${card.word}">
+          <figcaption data-eng="${card.word}" data-rus="${card.translation}">
+            ${card.word}
+          </figcaption>
         </figure>
         <img class="pronounce" src="./icons/audio.png" alt="pronounce">
         <button class="rotate"><img src="./icons/rotate.png" alt="rotate"></button>
@@ -45,15 +46,32 @@ function playPronounce(evt) {
 
 function rotateCard(evt) {
   const card = evt.target.closest(".word");
-  if (evt.target.closest(".rotate")) {
+  if (card && evt.target.closest(".rotate")) {
+    const translate = card.querySelector('figcaption');
+    translate.style.color = 'white';
+    translate.innerText = translate.dataset.rus;
     card.classList.add("rotated");
     card.addEventListener("mouseleave", rotateCardBack);
+
+    setTimeout(function() {
+      translate.style.color = 'black';
+    }, 220);
   }
 }
 
 function rotateCardBack(evt) {
-  const card = evt.target;
-  card.classList.remove("rotated");
+  const card = evt.target.closest(".rotated");
+
+  if(card) {
+    card.classList.remove("rotated");
+    const translate = card.querySelector("figcaption");
+    translate.style.color = 'white';
+    translate.innerText = translate.dataset.eng;
+
+    setTimeout(function() {
+      translate.style.color = 'black';
+    }, 200);
+  }
 }
 
 export { renderWordCards, playPronounce, rotateCard, rotateCardBack };
