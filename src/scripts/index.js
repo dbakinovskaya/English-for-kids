@@ -1,12 +1,14 @@
 import "../styles/common.css";
-import "../styles/header.css";
+import "../styles/header_buttons.css";
 import "../styles/category_cards.css";
 import "../styles/word_cards.css";
+import "../styles/burger_menu.css";
 
-import { showBurgerMenu, clickModeButton, closeBurgerMenu } from './burger_menu.js';
+import { showBurgerMenu, closeBurgerMenu } from './burger_menu.js';
+import {  clickModeButton, clickPlayButton } from './change_mode.js';
 import { getData, cardData } from './get_data.js';
 import { renderMainPage } from "./category_page.js";
-import { renderWordCards, playPronounce, rotateCard, rotateCardBack } from "./word_card.js";
+import { renderWordCards, playPronounce, rotateCard } from "./word_card.js";
 
 
 export const dom = {
@@ -16,7 +18,9 @@ export const dom = {
   burger: document.querySelector("#burger__menu"),
   menu: document.querySelector("#menu__wrapper"),
   mode: document.querySelector(".mode__wrapper"),
-  modeButton: document.querySelector(".mode"),
+  startBtn: document.querySelector(".start__btn"),
+  repeatBtn: document.querySelector(".repeat__btn"),
+  modeBtn: document.querySelector(".mode"),
   menuList: document.querySelector("ul"),
   cardWrapper: document.querySelector(".card__wrapper"),
 };
@@ -29,7 +33,9 @@ dom.logo.addEventListener("click", function(){
 
 dom.burger.addEventListener("click", showBurgerMenu);
 
-dom.modeButton.addEventListener("click", clickModeButton);
+dom.modeBtn.addEventListener("click", clickModeButton);
+
+dom.startBtn.addEventListener("click", clickPlayButton);
 
 dom.content.addEventListener("click", renderWordCards);
 

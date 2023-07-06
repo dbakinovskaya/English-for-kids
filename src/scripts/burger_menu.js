@@ -6,10 +6,6 @@ function showBurgerMenu() {
   dom.body.classList.toggle("open__burger");
 }
 
-function clickModeButton() {
-  dom.mode.classList.toggle("play");
-} //перенести в другой модуль
-
 function highlightActiveCategory(idx) {
   const currentLink = document.querySelector(".active__link");
   const newLink = document.querySelector(`[data-idx='${idx}']`);
@@ -26,4 +22,4 @@ function closeBurgerMenu(evt) {
   }
 }
 
-export {showBurgerMenu, clickModeButton, closeBurgerMenu, highlightActiveCategory};
+export {showBurgerMenu, closeBurgerMenu, highlightActiveCategory};

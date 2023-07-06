@@ -75,6 +75,17 @@
   cursor: pointer;
 }
 
+.game__mode .word figure figcaption,
+.game__mode .word .pronounce,
+.game__mode .word .rotate {
+  display: none;
+}
+
+.game__mode .word figure img {
+  border-radius: 13px;
+  vertical-align: middle;
+}
+
 @media screen and (max-width: 980px) {
   .word {
     width: 200px;

@@ -1,35 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    text-decoration: none;
-    list-style: none;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  list-style: none;
 }
 
 img {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 body {
-    padding: 0px 40px;
-    min-width: 320px;
-    background-color: rgb(137, 59, 255);
+  padding: 0px 40px;
+  min-width: 320px;
+  background: linear-gradient(0.25turn, #3b0269, #b68fc4, #9e0d66);
 }
 
 .open__burger {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+header {
+  margin-top: 10px;
+  margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  width: fit-content;
+  text-align: center;
+  margin: 0px auto;
+  transition: all 0.2s ease-out;
+  font-size: 60px;
+  font-family: "Dancing Script", cursive;
+  color: #ffffff;
+  text-shadow: 0px 3px 3px #000000;
+}
+
+h1:hover {
+  color: rgb(223, 201, 255);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 720px) {
-    body {
-        padding: 0px 20px;
-    }
+  body {
+    padding: 0px 20px;
+  }
+
+  header {
+    margin-bottom: 60px;
+  }
+
+  h1 {
+    font-size: 37px;
+  }
 }
 
 @media screen and (max-width: 400px) {
-    body {
-        padding: 0px 10px;
-    }
+  body {
+    padding: 0px 10px;
+  }
+
+  header {
+    margin-bottom: 40px;
+    height: 37px;
+  }
+
+    h1 {
+    font-size: 25px;
+  }
 }

@@ -35,6 +35,7 @@ function playPronounce(evt) {
   const audioWrapper = evt.target.closest(".word");
   if (
     audioWrapper &&
+    !dom.cardWrapper.classList.contains("game__mode") &&
     !audioWrapper.classList.contains("rotated") &&
     !evt.target.closest(".rotate")
   ) {
@@ -74,4 +75,4 @@ function rotateCardBack(evt) {
   }
 }
 
-export { renderWordCards, playPronounce, rotateCard, rotateCardBack };
+export { renderWordCards, playPronounce, rotateCard };
