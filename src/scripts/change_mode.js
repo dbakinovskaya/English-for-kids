@@ -1,8 +1,8 @@
 import { dom } from "./index.js";
-import { startGame } from "./game_mode.js";
+import { startGame, shuffleWords } from "./game_mode.js";
 
 function clickModeButton() {
-  if (!dom.mode.classList.contains("play")) {
+  if (!dom.mode.classList.contains("play") && dom.cardWrapper.lastChild.className != "results") {
     dom.mode.classList.add("play");
     dom.cardWrapper.classList.add("game__mode");
     dom.startBtn.classList.remove("hide");
@@ -31,7 +31,8 @@ function clickPlayButton() {
     });
   } else if (idx > 0) {
     changeButton();
-    startGame();
+    shuffleWords();
+    startGame(0);
   }
 }
 

@@ -68,6 +68,7 @@ function rotateCardBack(evt) {
     const translate = card.querySelector("figcaption");
     translate.style.color = 'white';
     translate.innerText = translate.dataset.eng;
+    card.removeEventListener("mouseleave", rotateCardBack);
 
     setTimeout(function() {
       translate.style.color = 'black';

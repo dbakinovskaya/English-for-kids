@@ -3,12 +3,15 @@ import "../styles/header_buttons.css";
 import "../styles/category_cards.css";
 import "../styles/word_cards.css";
 import "../styles/burger_menu.css";
+import "../styles/game_attributes.css";
+import "../styles/game_results.css";
 
 import { showBurgerMenu, closeBurgerMenu } from './burger_menu.js';
-import {  clickModeButton, clickPlayButton } from './change_mode.js';
+import { clickModeButton, clickPlayButton } from './change_mode.js';
 import { getData, cardData } from './get_data.js';
 import { renderMainPage } from "./category_page.js";
 import { renderWordCards, playPronounce, rotateCard } from "./word_card.js";
+import { repeatWord } from "./game_mode";
 
 
 export const dom = {
@@ -23,6 +26,7 @@ export const dom = {
   modeBtn: document.querySelector(".mode"),
   menuList: document.querySelector("ul"),
   cardWrapper: document.querySelector(".card__wrapper"),
+  answerWrapper: document.querySelector(".answer__wrapper")
 };
 
 dom.menu.addEventListener("click", closeBurgerMenu);
@@ -36,6 +40,8 @@ dom.burger.addEventListener("click", showBurgerMenu);
 dom.modeBtn.addEventListener("click", clickModeButton);
 
 dom.startBtn.addEventListener("click", clickPlayButton);
+
+dom.repeatBtn.addEventListener("click", repeatWord);
 
 dom.content.addEventListener("click", renderWordCards);
 

@@ -31,8 +31,7 @@ body {
 }
 
 header {
-  margin-top: 10px;
-  margin-bottom: 100px;
+  margin: 20px 0px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,13 +59,19 @@ h1:hover {
   cursor: pointer;
 }
 
+main {
+  max-width: 1280px;
+  margin: 0px auto;
+  overflow-x: hidden;
+}
+
 @media screen and (max-width: 720px) {
   body {
-    padding: 0px 20px;
+    padding: 0px 15px;
   }
 
   header {
-    margin-bottom: 60px;
+    margin: 15px 0px 0px;
   }
 
   h1 {
@@ -80,7 +85,7 @@ h1:hover {
   }
 
   header {
-    margin-bottom: 40px;
+    margin: 10px 0px 0px;
     height: 37px;
   }
 
@@ -149,67 +154,6 @@ h1:hover {
   border: 0px;
 }
 
-.control__btns button {
-  position: absolute;
-  top: 95px;
-  right: 40px;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
-}
-
-.control__btns button.hide {
-  right: -100%;
-}
-
-.control__btns button {
-  margin: 0px;
-  background-color: #ffffff;
-  border: 0px;
-  border-radius: 10px;
-  -webkit-box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
-          box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  padding: 5px 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.control__btns button img {
-  width: 50px;
-  margin-right: 5px;
-}
-
-.control__btns button span {
-  font-family: "Dancing Script", cursive;
-  font-size: 40px;
-  font-weight: normal;
-  color: #3b0269;
-
-}
-
-.control__btns button:hover {
-  background-color: #b68fc4;
-  cursor: pointer;
-}
-
-.control__btns button:hover span {
-  color: #ffffff;
-}
-
-.control__btns button:active {
-  -webkit-transform: translateY(1px);
-          transform: translateY(1px);
-  -webkit-box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
-          box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
-}
-
 @media screen and (max-width: 720px) {
   .mode__wrapper {
     width: 40px;
@@ -231,20 +175,6 @@ h1:hover {
   .mode__wrapper.play .mode {
     -webkit-transform: translateX(-21px);
             transform: translateX(-21px);
-  }
-
-  .control__btns button {
-    top: 62px;
-    right: 20px;
-    padding: 5px;
-  }
-
-  .control__btns button span {
-    font-size: 25px;
-  }
-
-  .control__btns button img {
-    width: 32px;
   }
 
   .stats {
@@ -276,20 +206,6 @@ h1:hover {
             transform: translateX(-21px);
   }
 
-  .control__btns button {
-    top: 56px;
-    right: 10px;
-    padding: 5px;
-  }
-
-  .control__btns button span {
-    font-size: 17px;
-  }
-
-  .control__btns button img {
-    width: 20px;
-  }
-
   .stats {
     font-size: 9px;
     padding: 5px 4.24px;
@@ -302,7 +218,7 @@ h1:hover {
 .card__wrapper {
   z-index: -5;
   max-width: 1280px;
-  margin: 50px auto 0;
+  margin: 0px auto;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -427,34 +343,51 @@ h1:hover {
   transition: all 0.3s ease;
 }
 
+.word.inactive:hover {
+  cursor: auto;
+  -webkit-box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.336);
+          box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.336);
+}
+
 .word:hover {
+  cursor: pointer;
   -webkit-box-shadow: 8px 8px 10px 1px rgba(232, 182, 255, 0.653);
           box-shadow: 8px 8px 10px 1px rgba(232, 182, 255, 0.653);
 }
 
 .rotated {
-  -webkit-transform: rotateY( 180deg );
-          transform: rotateY( 180deg );
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .rotated figcaption {
-  -webkit-transform: rotateY( 180deg );
-          transform: rotateY( 180deg );
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
-.rotated .pronounce, .rotated .rotate {
+.rotated .pronounce,
+.rotated .rotate {
   display: none;
 }
 
-.word:hover {
-  cursor: pointer;
+.inactive div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(173,40,122,0.56078);
+  border-radius: 13px;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+  opacity: 0;
 }
 
 .word figure img {
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   width: 100%;
   border-radius: 13px 13px 0 0;
 }
@@ -470,14 +403,14 @@ h1:hover {
   position: absolute;
   left: 10px;
   bottom: 7px;
-  -webkit-transition: all .3s ease;
-  transition: all .3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   opacity: 0;
 }
 
 .word:hover .pronounce {
-    cursor: pointer;
-    opacity: 1;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .rotate {
@@ -515,7 +448,6 @@ h1:hover {
 @media screen and (max-width: 980px) {
   .word {
     width: 200px;
-    /* height: 170px; */
     padding: 5px;
   }
 
@@ -536,13 +468,11 @@ h1:hover {
     left: 5px;
     width: 25px;
   }
-
 }
 
 @media screen and (max-width: 740px) {
   .word {
     width: 120px;
-    /* height: 105px; */
     padding: 5px;
   }
 
@@ -563,8 +493,8 @@ h1:hover {
     left: 5px;
     width: 15px;
   }
-
 }
+
 /*!************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/burger_menu.css ***!
   \************************************************************************************************************************/
@@ -723,3 +653,205 @@ li:hover {
   }
 }
 
+/*!****************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/game_attributes.css ***!
+  \****************************************************************************************************************************/
+.game__attributes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap:nowrap;
+      flex-wrap:nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.answer__wrapper {
+  width: 70%;
+  overflow: hidden;
+}
+
+.answer__wrapper div {
+  display: inline-block;
+  margin: 1px;
+}
+
+.answer__wrapper div img {
+ width: 65px;
+}
+
+.control__btns {
+  position: relative;
+  min-height: 60px;
+  margin: 20px 0px;
+}
+
+.control__btns button {
+  position: absolute;
+  right: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.control__btns button.hide {
+  visibility: hidden;
+}
+
+.control__btns button {
+  margin: 0px;
+  background-color: #ffffff;
+  border: 0px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
+          box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.479);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.control__btns button img {
+  width: 50px;
+  margin-right: 5px;
+}
+
+.control__btns button span {
+  font-family: "Dancing Script", cursive;
+  font-size: 40px;
+  font-weight: normal;
+  color: #3b0269;
+}
+
+.control__btns button:hover {
+  background-color: #b68fc4;
+  cursor: pointer;
+}
+
+.control__btns button:hover span {
+  color: #ffffff;
+}
+
+.control__btns button:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
+          box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
+}
+
+@media screen and (max-width: 1052px) {
+  .answer__wrapper div img {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .answer__wrapper div img {
+    width: 37px;
+  }
+
+  .control__btns {
+    margin: 15px 0px;
+    min-height: 42px;
+  }
+
+  .control__btns button {
+    padding: 5px;
+  }
+
+  .control__btns button span {
+    font-size: 25px;
+  }
+
+  .control__btns button img {
+    width: 32px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .answer__wrapper div {
+    margin: 0px;
+  }
+
+  .answer__wrapper div img {
+    width: 27px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .answer__wrapper div img {
+    width: 22px;
+  }
+
+  .control__btns {
+    margin: 10px 0px;
+    min-height: 31px;
+  }
+
+  .control__btns button {
+    padding: 5px;
+  }
+
+  .control__btns button span {
+    font-size: 17px;
+  }
+
+  .control__btns button img {
+    width: 20px;
+  }
+}
+
+/*!*************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/game_results.css ***!
+  \*************************************************************************************************************************/
+.results {
+    margin: 0px auto;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+.successful {
+    font-family: "Dancing Script", cursive;
+    font-size: 70px;
+    color: #ffffff;
+    text-shadow: 0px 3px 3px #000000;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.failed {
+    font-size: 70px;
+    color:#f01919;
+    font-weight: bold;
+    text-shadow: 0px 3px 3px #000000;
+    margin-bottom: 20px;
+}
+
+.results img {
+    width: 300px;
+    display: block;
+    margin: 0px auto;
+}
+
+@media screen and (max-width: 550px) {
+    .successful, .failed {
+        font-size: 30px;
+    }
+
+    .results img {
+        width: 200px;
+    }
+
+}

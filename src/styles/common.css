@@ -23,8 +23,7 @@ body {
 }
 
 header {
-  margin-top: 10px;
-  margin-bottom: 100px;
+  margin: 20px 0px 0px;
   display: flex;
   align-items: center;
 }
@@ -45,13 +44,19 @@ h1:hover {
   cursor: pointer;
 }
 
+main {
+  max-width: 1280px;
+  margin: 0px auto;
+  overflow-x: hidden;
+}
+
 @media screen and (max-width: 720px) {
   body {
-    padding: 0px 20px;
+    padding: 0px 15px;
   }
 
   header {
-    margin-bottom: 60px;
+    margin: 15px 0px 0px;
   }
 
   h1 {
@@ -65,7 +70,7 @@ h1:hover {
   }
 
   header {
-    margin-bottom: 40px;
+    margin: 10px 0px 0px;
     height: 37px;
   }
 

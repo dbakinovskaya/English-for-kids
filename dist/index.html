@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning Words</title>
     <link rel="shortcut icon" href="images\main_icon.39260b28fd4731db993b.png" type="image/x-icon" />
-  <script defer src="index.c03dfeca53c57b5db365.js"></script><link href="main.4e01e4e2e6ca12642285.css" rel="stylesheet"></head>
+  <script defer src="index.7142bded17fba29a4f16.js"></script><link href="main.f9f535977b111d91e2ef.css" rel="stylesheet"></head>
   <body>
-    <main>
+    <main id="main">
       <header>
         <div id="burger__menu">
           <div class="line"></div>
@@ -19,7 +19,7 @@
           <nav>
             <ul>
               <li data-idx="0" class="active__link">
-                <img src="images\main_icon.39260b28fd4731db993b.png" alt="category page"/>
+                <img src="images\main_icon.39260b28fd4731db993b.png" alt="category page" />
                 Category page
               </li>
             </ul>
@@ -31,17 +31,24 @@
             <div></div>
             <div>Play</div>
           </div>
-          <div class="control__btns">
-            <button class="start__btn hide"><img src="images\play.dd2aab626a7b0ce5d5b7.png" alt="play"><span>Start</span></button>
-            <button class="repeat__btn hide"><img src="images\repeat.ed9bd4b9cae21fc594b0.png" alt="repeat"><span>Repeat</span></button>
-          </div>
         </div>
         <button class="stats">Statistic</button>
       </header>
+      <div class="game__attributes">
+        <div class="answer__wrapper"></div>
+        <div class="control__btns">
+          <button class="start__btn hide">
+            <img src="images\play.dd2aab626a7b0ce5d5b7.png" alt="play" /><span>Start</span>
+          </button>
+          <button class="repeat__btn hide">
+            <img src="images\repeat.ed9bd4b9cae21fc594b0.png" alt="repeat" /><span>Repeat</span>
+          </button>
+        </div>
+      </div>
       <div class="app">
-        <div class="card__wrapper"></div>
+        <div class="card__wrapper">
+        </div>
       </div>
     </main>
-    <footer></footer>
   </body>
 </html>

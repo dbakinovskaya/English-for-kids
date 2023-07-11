@@ -9,29 +9,44 @@
   transition: all 0.3s ease;
 }
 
-.word:hover {
-  box-shadow: 8px 8px 10px 1px rgba(232, 182, 255, 0.653);
-}
-
-.rotated {
-  transform: rotateY( 180deg );
-  transition: all .5s ease;
-}
-
-.rotated figcaption {
-  transform: rotateY( 180deg );
-}
-
-.rotated .pronounce, .rotated .rotate {
-  display: none;
+.word.inactive:hover {
+  cursor: auto;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.336);
 }
 
 .word:hover {
   cursor: pointer;
+  box-shadow: 8px 8px 10px 1px rgba(232, 182, 255, 0.653);
+}
+
+.rotated {
+  transform: rotateY(180deg);
+  transition: all 0.5s ease;
+}
+
+.rotated figcaption {
+  transform: rotateY(180deg);
+}
+
+.rotated .pronounce,
+.rotated .rotate {
+  display: none;
+}
+
+.inactive div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ad287a8f;
+  border-radius: 13px;
+  transition: all .5s ease;
+  opacity: 0;
 }
 
 .word figure img {
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   width: 100%;
   border-radius: 13px 13px 0 0;
 }
@@ -47,13 +62,13 @@
   position: absolute;
   left: 10px;
   bottom: 7px;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
   opacity: 0;
 }
 
 .word:hover .pronounce {
-    cursor: pointer;
-    opacity: 1;
+  cursor: pointer;
+  opacity: 1;
 }
 
 .rotate {
@@ -89,7 +104,6 @@
 @media screen and (max-width: 980px) {
   .word {
     width: 200px;
-    /* height: 170px; */
     padding: 5px;
   }
 
@@ -110,13 +124,11 @@
     left: 5px;
     width: 25px;
   }
-
 }
 
 @media screen and (max-width: 740px) {
   .word {
     width: 120px;
-    /* height: 105px; */
     padding: 5px;
   }
 
@@ -137,5 +149,4 @@
     left: 5px;
     width: 15px;
   }
-
 }

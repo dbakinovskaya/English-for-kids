@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="images/main_icon.png" type="image/x-icon" />
   </head>
   <body>
-    <main>
+    <main id="main">
       <header>
         <div id="burger__menu">
           <div class="line"></div>
@@ -19,7 +19,7 @@
           <nav>
             <ul>
               <li data-idx="0" class="active__link">
-                <img src="images/main_icon.png" alt="category page"/>
+                <img src="images/main_icon.png" alt="category page" />
                 Category page
               </li>
             </ul>
@@ -31,17 +31,24 @@
             <div></div>
             <div>Play</div>
           </div>
-          <div class="control__btns">
-            <button class="start__btn hide"><img src="./icons/play.png" alt="play"><span>Start</span></button>
-            <button class="repeat__btn hide"><img src="./icons/repeat.png" alt="repeat"><span>Repeat</span></button>
-          </div>
         </div>
         <button class="stats">Statistic</button>
       </header>
+      <div class="game__attributes">
+        <div class="answer__wrapper"></div>
+        <div class="control__btns">
+          <button class="start__btn hide">
+            <img src="./icons/play.png" alt="play" /><span>Start</span>
+          </button>
+          <button class="repeat__btn hide">
+            <img src="./icons/repeat.png" alt="repeat" /><span>Repeat</span>
+          </button>
+        </div>
+      </div>
       <div class="app">
-        <div class="card__wrapper"></div>
+        <div class="card__wrapper">
+        </div>
       </div>
     </main>
-    <footer></footer>
   </body>
 </html>
