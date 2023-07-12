@@ -2,6 +2,7 @@ import { cardData } from "./get_data.js";
 import { dom } from "./index.js";
 import { highlightActiveCategory } from "./burger_menu.js";
 import { renderMainPage } from "./category_page.js";
+import { setStats } from "./stats.js";
 
 function renderWordCards(evt) {
   const elem = evt.target;
@@ -12,6 +13,10 @@ function renderWordCards(evt) {
     cardData[idx].forEach((item) => {
       dom.cardWrapper.innerHTML += buildWordCard(item);
     });
+    if (dom.statsWrapper.classList.contains("active")) {
+      dom.statsWrapper.classList.remove("active");
+      dom.mode.classList.remove("hide");
+    }
   } else if (idx === "0") {
     renderMainPage(cardData[0]);
   }
@@ -42,12 +47,14 @@ function playPronounce(evt) {
     const audio = audioWrapper.lastElementChild;
     audio.volume = 1;
     audio.play();
+    setStats(audioWrapper, 'clicks')
   }
 }
 
 function rotateCard(evt) {
   const card = evt.target.closest(".word");
   if (card && evt.target.closest(".rotate")) {
+    setStats(card, 'clicks');
     const translate = card.querySelector('figcaption');
     translate.style.color = 'white';
     translate.innerText = translate.dataset.rus;

@@ -5,14 +5,15 @@ import "../styles/word_cards.css";
 import "../styles/burger_menu.css";
 import "../styles/game_attributes.css";
 import "../styles/game_results.css";
+import "../styles/stats_table.css";
 
-import { showBurgerMenu, closeBurgerMenu } from './burger_menu.js';
-import { clickModeButton, clickPlayButton } from './change_mode.js';
-import { getData, cardData } from './get_data.js';
+import { showBurgerMenu, closeBurgerMenu } from "./burger_menu.js";
+import { clickModeButton, clickPlayButton } from "./change_mode.js";
+import { getData, cardData } from "./get_data.js";
 import { renderMainPage } from "./category_page.js";
 import { renderWordCards, playPronounce, rotateCard } from "./word_card.js";
-import { repeatWord } from "./game_mode";
-
+import { repeatWord } from "./game_mode.js";
+import { showStats } from "./stats.js";
 
 export const dom = {
   body: document.querySelector("body"),
@@ -24,20 +25,25 @@ export const dom = {
   startBtn: document.querySelector(".start__btn"),
   repeatBtn: document.querySelector(".repeat__btn"),
   modeBtn: document.querySelector(".mode"),
+  statsBtn: document.querySelector(".stats"),
   menuList: document.querySelector("ul"),
   cardWrapper: document.querySelector(".card__wrapper"),
-  answerWrapper: document.querySelector(".answer__wrapper")
+  answerWrapper: document.querySelector(".answer__wrapper"),
+  statsWrapper: document.querySelector(".stats__wrapper"),
+  tableBody: document.querySelector("tbody"),
 };
 
 dom.menu.addEventListener("click", closeBurgerMenu);
 
-dom.logo.addEventListener("click", function(){
+dom.logo.addEventListener("click", function () {
   renderMainPage(cardData[0]);
 });
 
 dom.burger.addEventListener("click", showBurgerMenu);
 
 dom.modeBtn.addEventListener("click", clickModeButton);
+
+dom.statsBtn.addEventListener("click", showStats);
 
 dom.startBtn.addEventListener("click", clickPlayButton);
 

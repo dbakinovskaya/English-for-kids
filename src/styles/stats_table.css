@@ -1,0 +1,54 @@
+.stats__wrapper.active {
+    display: block;
+}
+
+.stats__wrapper {
+    display: none;
+}
+
+.stats__wrapper table {
+  margin: 20px 0px;
+  width: 100%;
+  border-collapse:collapse;
+  text-align: center;
+}
+
+table caption {
+  width: 100%;
+  font-size: 40px;
+  color: #3b0269;
+  background-color: #daaceb;
+  border-radius: 13px 13px 0px 0px;
+  border-bottom: 2px solid #ffffff;
+  padding: 5px 0px;
+}
+
+table thead {
+    background-color: #daaceb;
+    color: #ffffff;
+    font-size: 20px;
+    background-color: #3b0269;
+    border-bottom: 2px solid #ffffff;
+}
+
+th {
+    padding: 5px 0px;
+}
+
+td {
+    padding: 3px 0px;
+    font-size: 20px;
+}
+
+table tbody {
+    height: 100%;
+    overflow: hidden;
+}
+
+tbody tr:nth-child(1n) {
+    background-color: #daaceb;
+}
+
+tbody tr:nth-child(2n) {
+    background-color: #b275c9;
+}

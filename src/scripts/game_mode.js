@@ -2,6 +2,7 @@ import { dom } from "./index.js";
 import { clickModeButton } from "./change_mode.js";
 import { renderMainPage } from "./category_page.js";
 import { cardData } from "./get_data.js";
+import { setStats } from "./stats.js";
 
 const counts = {
   mistakes: 0,
@@ -39,6 +40,7 @@ function startGame(n) {
         addAnswerIcon("./icons/true.png");
         playSignal("./audio/correct.mp3");
         makeCardInactive(evt);
+        setStats(attempt.word, "correct")
 
         setTimeout(() => startGame(n + 1), 1000);
 
@@ -52,8 +54,8 @@ function startGame(n) {
       ) {
         playSignal("./audio/error.mp3");
         addAnswerIcon("./icons/false.png");
+        setStats(attempt.audio.closest(".word"), "mistakes")
         counts.mistakes++;
-        console.log(counts.mistakes);
       }
     });
   }

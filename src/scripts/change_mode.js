@@ -2,7 +2,7 @@ import { dom } from "./index.js";
 import { startGame, shuffleWords } from "./game_mode.js";
 
 function clickModeButton() {
-  if (!dom.mode.classList.contains("play") && dom.cardWrapper.lastChild.className != "results") {
+  if (!dom.mode.classList.contains("play")) {
     dom.mode.classList.add("play");
     dom.cardWrapper.classList.add("game__mode");
     dom.startBtn.classList.remove("hide");

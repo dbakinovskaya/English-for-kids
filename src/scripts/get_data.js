@@ -1,4 +1,5 @@
 import { renderMainPage, renderMenuList } from './category_page.js';
+import { renderStatsPage } from './stats.js';
 
 const cardData = [];
 
@@ -10,6 +11,9 @@ async function getData() {
     }))
     renderMainPage(cardData[0]);
     renderMenuList(cardData[0]);
+    renderStatsPage(1, 0);
 }
+
+
 
 export { cardData, getData };

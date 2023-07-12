@@ -8,6 +8,10 @@
   overflow: hidden;
 }
 
+.mode__wrapper.hide {
+  display: none;
+}
+
 .mode {
   padding: 0px 3px;
   font-size: 13px;
