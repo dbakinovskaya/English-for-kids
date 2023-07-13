@@ -13,7 +13,7 @@ import { getData, cardData } from "./get_data.js";
 import { renderMainPage } from "./category_page.js";
 import { renderWordCards, playPronounce, rotateCard } from "./word_card.js";
 import { repeatWord } from "./game_mode.js";
-import { showStats } from "./stats.js";
+import { showStats, resetStats, sortStats } from "./stats.js";
 
 export const dom = {
   body: document.querySelector("body"),
@@ -30,6 +30,10 @@ export const dom = {
   cardWrapper: document.querySelector(".card__wrapper"),
   answerWrapper: document.querySelector(".answer__wrapper"),
   statsWrapper: document.querySelector(".stats__wrapper"),
+  statsBtnsWrapper: document.querySelector(".stats__btns"),
+  resetBtn: document.querySelector(".reset"),
+  repeatWordsBtn: document.querySelector(".repeat__words"),
+  tableHead: document.querySelector("thead"),
   tableBody: document.querySelector("tbody"),
 };
 
@@ -54,5 +58,9 @@ dom.content.addEventListener("click", renderWordCards);
 dom.cardWrapper.addEventListener("click", playPronounce);
 
 dom.cardWrapper.addEventListener("click", rotateCard);
+
+dom.resetBtn.addEventListener("click", resetStats);
+
+dom.tableHead.addEventListener("click", sortStats);
 
 getData();

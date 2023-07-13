@@ -4,6 +4,7 @@ import { highlightActiveCategory } from "./burger_menu.js";
 function renderMainPage(list) {
   dom.cardWrapper.innerHTML = "";
   dom.statsWrapper.classList.remove("active");
+  dom.statsBtnsWrapper.classList.remove("active");
   dom.mode.classList.remove("hide");
   list.forEach((item) => {
     dom.cardWrapper.innerHTML += buildCategoryCard(item);

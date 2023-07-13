@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning Words</title>
     <link rel="shortcut icon" href="images\main_icon.39260b28fd4731db993b.png" type="image/x-icon" />
-  <script defer src="index.d4c054e532967b2e1906.js"></script><link href="main.874b3dd0d68bfe7dc9dd.css" rel="stylesheet"></head>
+  <script defer src="index.ed04fcc47eb63a380925.js"></script><link href="main.47013c3e521e8cafe448.css" rel="stylesheet"></head>
   <body>
     <main id="main">
       <header>
@@ -36,6 +36,10 @@
       </header>
       <div class="game__attributes">
         <div class="answer__wrapper"></div>
+        <div class="stats__btns">
+          <button class="reset">Reset</button>
+          <button class="repeat__words">Repeat difficult words</button>
+        </div>
         <div class="control__btns" style>
           <button class="start__btn hide">
             <img src="images\play.dd2aab626a7b0ce5d5b7.png" alt="play" /><span>Start</span>
@@ -53,13 +57,13 @@
             <caption>Your progress</caption>
             <thead>
               <tr>
-                <th>Word</th>
-                <th>Translation</th>
-                <th>Category</th>
-                <th>Clicks</th>
-                <th>Correct answers</th>
-                <th>Mistakes</th>
-                <th>Correct, %</th>
+                <th data-column="0">Word</th>
+                <th data-column="1">Translation</th>
+                <th data-column="2">Category</th>
+                <th data-column="3">Clicks</th>
+                <th data-column="4">Correct</th>
+                <th data-column="5">Wrong</th>
+                <th data-column="6">% correct</th>
               </tr>
             </thead>
             <tbody></tbody>

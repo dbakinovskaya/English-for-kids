@@ -15,6 +15,7 @@ function renderWordCards(evt) {
     });
     if (dom.statsWrapper.classList.contains("active")) {
       dom.statsWrapper.classList.remove("active");
+      dom.statsBtnsWrapper.classList.remove("active");
       dom.mode.classList.remove("hide");
     }
   } else if (idx === "0") {

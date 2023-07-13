@@ -36,6 +36,10 @@
       </header>
       <div class="game__attributes">
         <div class="answer__wrapper"></div>
+        <div class="stats__btns">
+          <button class="reset">Reset</button>
+          <button class="repeat__words">Repeat difficult words</button>
+        </div>
         <div class="control__btns" style>
           <button class="start__btn hide">
             <img src="./icons/play.png" alt="play" /><span>Start</span>
@@ -53,13 +57,13 @@
             <caption>Your progress</caption>
             <thead>
               <tr>
-                <th>Word</th>
-                <th>Translation</th>
-                <th>Category</th>
-                <th>Clicks</th>
-                <th>Correct answers</th>
-                <th>Mistakes</th>
-                <th>Correct, %</th>
+                <th data-column="0">Word</th>
+                <th data-column="1">Translation</th>
+                <th data-column="2">Category</th>
+                <th data-column="3">Clicks</th>
+                <th data-column="4">Correct</th>
+                <th data-column="5">Wrong</th>
+                <th data-column="6">% correct</th>
               </tr>
             </thead>
             <tbody></tbody>

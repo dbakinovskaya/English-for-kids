@@ -1,21 +1,22 @@
 .stats__wrapper.active {
-    display: block;
+  display: block;
 }
 
 .stats__wrapper {
-    display: none;
+  display: none;
 }
 
 .stats__wrapper table {
   margin: 20px 0px;
   width: 100%;
-  border-collapse:collapse;
+  border-collapse: collapse;
   text-align: center;
 }
 
 table caption {
   width: 100%;
   font-size: 40px;
+  font-weight: 300;
   color: #3b0269;
   background-color: #daaceb;
   border-radius: 13px 13px 0px 0px;
@@ -24,31 +25,89 @@ table caption {
 }
 
 table thead {
-    background-color: #daaceb;
-    color: #ffffff;
-    font-size: 20px;
-    background-color: #3b0269;
-    border-bottom: 2px solid #ffffff;
+  background-color: #daaceb;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: #3b0269;
+  border-bottom: 2px solid #ffffff;
 }
 
 th {
-    padding: 5px 0px;
+  padding: 5px 0px;
+}
+
+th:hover {
+  cursor: pointer;
+}
+
+th:hover::after {
+  position: absolute;
+  content: " ↓";
+}
+
+th.sorted:hover::after {
+  position: absolute;
+  content: " ↑";
 }
 
 td {
-    padding: 3px 0px;
-    font-size: 20px;
+  padding: 3px 0px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 table tbody {
-    height: 100%;
-    overflow: hidden;
+  height: 100%;
+  overflow: hidden;
 }
 
 tbody tr:nth-child(1n) {
-    background-color: #daaceb;
+  background-color: #daaceb;
 }
 
 tbody tr:nth-child(2n) {
-    background-color: #b275c9;
+  background-color: #b275c9;
+}
+
+@media screen and (max-width: 920px) {
+  table caption {
+    font-size: 30px;
+  }
+
+  table thead {
+    font-size: 15px;
+  }
+
+  td {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  table caption {
+    font-size: 25px;
+  }
+
+  table thead {
+    font-size: 12px;
+  }
+
+  td {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  table caption {
+    font-size: 15px;
+  }
+
+  table thead {
+    font-size: 8px;
+  }
+
+  td {
+    font-size: 9px;
+  }
 }
