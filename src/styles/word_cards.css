@@ -41,7 +41,7 @@
   bottom: 0;
   background-color: #ad287a8f;
   border-radius: 13px;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   opacity: 0;
 }
 

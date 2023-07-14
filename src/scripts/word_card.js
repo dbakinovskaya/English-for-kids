@@ -7,7 +7,7 @@ import { setStats } from "./stats.js";
 function renderWordCards(evt) {
   const elem = evt.target;
   const idx = elem.dataset.idx;
-  if (idx > 0) {
+  if (idx > 0 && !elem.classList.contains("stats")) {
     highlightActiveCategory(idx);
     dom.cardWrapper.innerHTML = "";
     cardData[idx].forEach((item) => {
@@ -48,22 +48,22 @@ function playPronounce(evt) {
     const audio = audioWrapper.lastElementChild;
     audio.volume = 1;
     audio.play();
-    setStats(audioWrapper, 'clicks')
+    setStats(audioWrapper, "clicks");
   }
 }
 
 function rotateCard(evt) {
   const card = evt.target.closest(".word");
   if (card && evt.target.closest(".rotate")) {
-    setStats(card, 'clicks');
-    const translate = card.querySelector('figcaption');
-    translate.style.color = 'white';
+    setStats(card, "clicks");
+    const translate = card.querySelector("figcaption");
+    translate.style.color = "white";
     translate.innerText = translate.dataset.rus;
     card.classList.add("rotated");
     card.addEventListener("mouseleave", rotateCardBack);
 
-    setTimeout(function() {
-      translate.style.color = 'black';
+    setTimeout(function () {
+      translate.style.color = "black";
     }, 220);
   }
 }
@@ -71,17 +71,17 @@ function rotateCard(evt) {
 function rotateCardBack(evt) {
   const card = evt.target.closest(".rotated");
 
-  if(card) {
+  if (card) {
     card.classList.remove("rotated");
     const translate = card.querySelector("figcaption");
-    translate.style.color = 'white';
+    translate.style.color = "white";
     translate.innerText = translate.dataset.eng;
     card.removeEventListener("mouseleave", rotateCardBack);
 
-    setTimeout(function() {
-      translate.style.color = 'black';
+    setTimeout(function () {
+      translate.style.color = "black";
     }, 200);
   }
 }
 
-export { renderWordCards, playPronounce, rotateCard };
+export { renderWordCards, playPronounce, rotateCard, buildWordCard };

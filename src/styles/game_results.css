@@ -1,39 +1,39 @@
 .results {
-    margin: 0px auto;
-    width: fit-content;
+  margin: 0px auto;
+  width: fit-content;
 }
 
 .successful {
-    font-family: "Dancing Script", cursive;
-    font-size: 70px;
-    color: #ffffff;
-    text-shadow: 0px 3px 3px #000000;
-    letter-spacing: 3px;
-    text-align: center;
-    margin-bottom: 20px;
+  font-family: "Dancing Script", cursive;
+  font-size: 70px;
+  color: #ffffff;
+  text-shadow: 0px 3px 3px #000000;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .failed {
-    font-size: 70px;
-    color:#f01919;
-    font-weight: bold;
-    text-shadow: 0px 3px 3px #000000;
-    margin-bottom: 20px;
+  font-size: 70px;
+  color: #f01919;
+  font-weight: bold;
+  text-shadow: 0px 3px 3px #000000;
+  margin-bottom: 20px;
 }
 
 .results img {
-    width: 300px;
-    display: block;
-    margin: 0px auto;
+  width: 300px;
+  display: block;
+  margin: 0px auto;
 }
 
 @media screen and (max-width: 550px) {
-    .successful, .failed {
-        font-size: 30px;
-    }
+  .successful,
+  .failed {
+    font-size: 30px;
+  }
 
-    .results img {
-        width: 200px;
-    }
-
+  .results img {
+    width: 200px;
+  }
 }

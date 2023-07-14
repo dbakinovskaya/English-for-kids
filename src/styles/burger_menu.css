@@ -15,11 +15,6 @@
   background-color: #ffffff;
 }
 
-#burger__menu.active__menu {
-  transition: all 0.4s ease;
-  transform: translateX(155px);
-}
-
 #burger__menu:hover {
   cursor: pointer;
 }
@@ -52,7 +47,7 @@ nav {
   bottom: 0;
   background-color: #b43e87;
   z-index: 100;
-  padding-top: 72px;
+  padding-top: 100px;
   width: 250px;
   transition: all 0.3s ease-out;
   overflow-y: auto;
@@ -121,11 +116,7 @@ li:hover {
   }
 
   nav {
-    padding-top: 44px;
-  }
-
-  #burger__menu.active__menu {
-    transform: translateX(185px);
+    padding-top: 60px;
   }
 }
 
@@ -134,11 +125,7 @@ li:hover {
     width: 30px;
   }
 
-  #burger__menu.active__menu {
-    transform: translateX(195px);
-  }
-
   nav {
-    padding-top: 37px;
+    padding-top: 45px;
   }
 }

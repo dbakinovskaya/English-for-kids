@@ -6,6 +6,12 @@
   display: none;
 }
 
+#message {
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
+}
+
 .stats__wrapper table {
   margin: 20px 0px;
   width: 100%;
@@ -71,7 +77,8 @@ tbody tr:nth-child(2n) {
 }
 
 @media screen and (max-width: 920px) {
-  table caption {
+  table caption,
+  #message {
     font-size: 30px;
   }
 
@@ -85,7 +92,8 @@ tbody tr:nth-child(2n) {
 }
 
 @media screen and (max-width: 750px) {
-  table caption {
+  table caption,
+  .stats__wrapper p {
     font-size: 25px;
   }
 
@@ -99,7 +107,8 @@ tbody tr:nth-child(2n) {
 }
 
 @media screen and (max-width: 510px) {
-  table caption {
+  table caption,
+  #message {
     font-size: 15px;
   }
 

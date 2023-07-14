@@ -208,10 +208,10 @@
         "audioSrc": "audio/bird.mp3"
         },
         {
-        "word": "fish",
-        "translation": "рыба",
-        "image": "images/fish1.jpg",
-        "audioSrc": "audio/fish.mp3"
+        "word": "elephant",
+        "translation": "слон",
+        "image": "images/elephant.jpg",
+        "audioSrc": "audio/elephant.mp3"
         },
         {
         "word": "frog",

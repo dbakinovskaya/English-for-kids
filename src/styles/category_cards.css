@@ -47,7 +47,7 @@
   bottom: 0;
   background-color: #ad287a8f;
   border-radius: 13px;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
   opacity: 0;
 }
 
@@ -66,7 +66,6 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-
 }
 
 @media screen and (max-width: 930px) {

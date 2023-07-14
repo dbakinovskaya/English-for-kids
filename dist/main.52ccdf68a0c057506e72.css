@@ -13,7 +13,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   list-style: none;
@@ -28,7 +28,8 @@ body {
   min-width: 320px;
   background: -webkit-gradient(linear, left top, right top, from(#3b0269), color-stop(#b68fc4), to(#9e0d66));
   background: linear-gradient(0.25turn, #3b0269, #b68fc4, #9e0d66);
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
+  margin: 0px;
 }
 
 .open__burger {
@@ -284,8 +285,8 @@ main {
   bottom: 0;
   background-color: rgba(173,40,122,0.56078);
   border-radius: 13px;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   opacity: 0;
 }
 
@@ -305,7 +306,6 @@ main {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-
 }
 
 @media screen and (max-width: 930px) {
@@ -389,8 +389,8 @@ main {
   bottom: 0;
   background-color: rgba(173,40,122,0.56078);
   border-radius: 13px;
-  -webkit-transition: all .5s ease;
-  transition: all .5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   opacity: 0;
 }
 
@@ -526,13 +526,6 @@ main {
   background-color: #ffffff;
 }
 
-#burger__menu.active__menu {
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  -webkit-transform: translateX(155px);
-          transform: translateX(155px);
-}
-
 #burger__menu:hover {
   cursor: pointer;
 }
@@ -567,7 +560,7 @@ nav {
   bottom: 0;
   background-color: #b43e87;
   z-index: 100;
-  padding-top: 72px;
+  padding-top: 100px;
   width: 250px;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
@@ -638,12 +631,7 @@ li:hover {
   }
 
   nav {
-    padding-top: 44px;
-  }
-
-  #burger__menu.active__menu {
-    -webkit-transform: translateX(185px);
-            transform: translateX(185px);
+    padding-top: 60px;
   }
 }
 
@@ -652,13 +640,8 @@ li:hover {
     width: 30px;
   }
 
-  #burger__menu.active__menu {
-    -webkit-transform: translateX(195px);
-            transform: translateX(195px);
-  }
-
   nav {
-    padding-top: 37px;
+    padding-top: 45px;
   }
 }
 
@@ -669,8 +652,8 @@ li:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap:nowrap;
-      flex-wrap:nowrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -690,20 +673,19 @@ li:hover {
 }
 
 .answer__wrapper div img {
- width: 65px;
+  width: 65px;
 }
 
 .stats__btns {
   display: none;
   position: absolute;
-  right: 30px;
 }
 
 .stats__btns.active {
   display: block;
 }
 
-.stats__btns button{
+.stats__btns button {
   font-size: 25px;
   font-weight: 300;
   color: #3b0269;
@@ -784,7 +766,8 @@ li:hover {
   color: #ffffff;
 }
 
-.control__btns button:active, .stats__btns button:active {
+.control__btns button:active,
+.stats__btns button:active {
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
   -webkit-box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
@@ -800,10 +783,6 @@ li:hover {
 @media screen and (max-width: 720px) {
   .answer__wrapper div img {
     width: 37px;
-  }
-
-  .stats__btns {
-    right: 5px;
   }
 
   .stats__btns button {
@@ -870,46 +849,47 @@ li:hover {
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/game_results.css ***!
   \*************************************************************************************************************************/
 .results {
-    margin: 0px auto;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+  margin: 0px auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .successful {
-    font-family: "Dancing Script", cursive;
-    font-size: 70px;
-    color: #ffffff;
-    text-shadow: 0px 3px 3px #000000;
-    letter-spacing: 3px;
-    text-align: center;
-    margin-bottom: 20px;
+  font-family: "Dancing Script", cursive;
+  font-size: 70px;
+  color: #ffffff;
+  text-shadow: 0px 3px 3px #000000;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .failed {
-    font-size: 70px;
-    color:#f01919;
-    font-weight: bold;
-    text-shadow: 0px 3px 3px #000000;
-    margin-bottom: 20px;
+  font-size: 70px;
+  color: #f01919;
+  font-weight: bold;
+  text-shadow: 0px 3px 3px #000000;
+  margin-bottom: 20px;
 }
 
 .results img {
-    width: 300px;
-    display: block;
-    margin: 0px auto;
+  width: 300px;
+  display: block;
+  margin: 0px auto;
 }
 
 @media screen and (max-width: 550px) {
-    .successful, .failed {
-        font-size: 30px;
-    }
+  .successful,
+  .failed {
+    font-size: 30px;
+  }
 
-    .results img {
-        width: 200px;
-    }
-
+  .results img {
+    width: 200px;
+  }
 }
+
 /*!************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/stats_table.css ***!
   \************************************************************************************************************************/
@@ -919,6 +899,12 @@ li:hover {
 
 .stats__wrapper {
   display: none;
+}
+
+#message {
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
 }
 
 .stats__wrapper table {
@@ -986,7 +972,8 @@ tbody tr:nth-child(2n) {
 }
 
 @media screen and (max-width: 920px) {
-  table caption {
+  table caption,
+  #message {
     font-size: 30px;
   }
 
@@ -1000,7 +987,8 @@ tbody tr:nth-child(2n) {
 }
 
 @media screen and (max-width: 750px) {
-  table caption {
+  table caption,
+  .stats__wrapper p {
     font-size: 25px;
   }
 
@@ -1014,7 +1002,8 @@ tbody tr:nth-child(2n) {
 }
 
 @media screen and (max-width: 510px) {
-  table caption {
+  table caption,
+  #message {
     font-size: 15px;
   }
 

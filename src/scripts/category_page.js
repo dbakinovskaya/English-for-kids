@@ -3,19 +3,21 @@ import { highlightActiveCategory } from "./burger_menu.js";
 
 function renderMainPage(list) {
   dom.cardWrapper.innerHTML = "";
+  dom.answerWrapper.innerHTML = "";
+  dom.repeatBtn.classList.add("hide");
   dom.statsWrapper.classList.remove("active");
   dom.statsBtnsWrapper.classList.remove("active");
   dom.mode.classList.remove("hide");
   list.forEach((item) => {
     dom.cardWrapper.innerHTML += buildCategoryCard(item);
   });
-  highlightActiveCategory('0');
+  highlightActiveCategory("0");
 }
 
 function renderMenuList(list) {
   list.forEach((item) => {
     dom.menuList.innerHTML += buildMenuItem(item);
-  })
+  });
 }
 
 function buildMenuItem(item) {

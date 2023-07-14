@@ -1,6 +1,6 @@
 .game__attributes {
   display: flex;
-  flex-wrap:nowrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -16,20 +16,19 @@
 }
 
 .answer__wrapper div img {
- width: 65px;
+  width: 65px;
 }
 
 .stats__btns {
   display: none;
   position: absolute;
-  right: 30px;
 }
 
 .stats__btns.active {
   display: block;
 }
 
-.stats__btns button{
+.stats__btns button {
   font-size: 25px;
   font-weight: 300;
   color: #3b0269;
@@ -99,7 +98,8 @@
   color: #ffffff;
 }
 
-.control__btns button:active, .stats__btns button:active {
+.control__btns button:active,
+.stats__btns button:active {
   transform: translateY(1px);
   box-shadow: 3px 3px 5px 1px rgba(20, 67, 4, 0.479);
 }
@@ -113,10 +113,6 @@
 @media screen and (max-width: 720px) {
   .answer__wrapper div img {
     width: 37px;
-  }
-
-  .stats__btns {
-    right: 5px;
   }
 
   .stats__btns button {

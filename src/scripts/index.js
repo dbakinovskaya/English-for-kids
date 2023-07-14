@@ -13,7 +13,12 @@ import { getData, cardData } from "./get_data.js";
 import { renderMainPage } from "./category_page.js";
 import { renderWordCards, playPronounce, rotateCard } from "./word_card.js";
 import { repeatWord } from "./game_mode.js";
-import { showStats, resetStats, sortStats } from "./stats.js";
+import {
+  showStats,
+  resetStats,
+  sortStats,
+  repeatDifficultWords,
+} from "./stats.js";
 
 export const dom = {
   body: document.querySelector("body"),
@@ -62,5 +67,7 @@ dom.cardWrapper.addEventListener("click", rotateCard);
 dom.resetBtn.addEventListener("click", resetStats);
 
 dom.tableHead.addEventListener("click", sortStats);
+
+dom.repeatWordsBtn.addEventListener("click", repeatDifficultWords);
 
 getData();

@@ -1,5 +1,5 @@
 import { dom } from "./index.js";
-import { startGame, shuffleWords } from "./game_mode.js";
+import { startGame, shuffleWords, attempt } from "./game_mode.js";
 
 function clickModeButton() {
   if (!dom.mode.classList.contains("play")) {
@@ -10,9 +10,12 @@ function clickModeButton() {
     dom.mode.classList.remove("play");
     dom.cardWrapper.classList.remove("game__mode");
 
-    if (!dom.startBtn.classList.contains("hide") || !dom.repeatBtn.classList.contains("hide")) {
-      dom.startBtn.classList.add("hide")
-      dom.repeatBtn.classList.add("hide")
+    if (
+      !dom.startBtn.classList.contains("hide") ||
+      !dom.repeatBtn.classList.contains("hide")
+    ) {
+      dom.startBtn.classList.add("hide");
+      dom.repeatBtn.classList.add("hide");
     }
   }
 }
@@ -20,16 +23,21 @@ function clickModeButton() {
 function clickPlayButton() {
   const idx = document.querySelector(".active__link").dataset.idx;
   const cards = document.querySelectorAll(".category");
-  const words = document.querySelectorAll(".word");
+  const difficultWords = document.querySelector("#difficult");
 
-  if (idx === "0" && !dom.cardWrapper.querySelector(".hint")) {
+  if (
+    idx === "0" &&
+    !dom.cardWrapper.querySelector(".hint") &&
+    !difficultWords
+  ) {
     cards.forEach((card) => {
       showHint(card);
       setTimeout(function () {
         deleteHint(card);
       }, 1000);
     });
-  } else if (idx > 0) {
+  } else if (idx > 0 || difficultWords) {
+    dom.mode.classList.add("hide");
     changeButton();
     shuffleWords();
     startGame(0);

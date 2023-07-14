@@ -1,5 +1,7 @@
 import { dom } from "./index.js";
 import { cardData } from "./get_data";
+import { renderMainPage } from "./category_page.js";
+import { buildWordCard } from "./word_card.js";
 
 function showStats() {
   if (!dom.statsWrapper.classList.contains("active")) {
@@ -8,6 +10,8 @@ function showStats() {
     dom.statsBtnsWrapper.classList.add("active");
     dom.cardWrapper.innerHTML = "";
     dom.tableBody.innerHTML = "";
+    dom.startBtn.classList.add("hide");
+    dom.repeatBtn.classList.add("hide");
     renderStatsPage(1, 0);
   }
 }
@@ -84,7 +88,6 @@ function sortStats(evt) {
   const idx = +column.dataset.column;
   const sortedRows = Array.from(dom.tableBody.rows);
 
-
   if (column && !column.classList.contains("sorted")) {
     if (sortedColumn) {
       sortedColumn.classList.remove("sorted");
@@ -102,4 +105,42 @@ function sortStats(evt) {
   dom.tableBody.append(...sortedRows);
 }
 
-export { showStats, renderStatsPage, setStats, resetStats, sortStats };
+function repeatDifficultWords() {
+  dom.statsWrapper.classList.remove("active");
+  dom.statsBtnsWrapper.classList.remove("active");
+  dom.mode.classList.remove("hide");
+
+  const rows = Array.from(dom.tableBody.rows);
+
+  rows
+    .sort((rowA, rowB) =>
+      rowA.cells[5].innerHTML > rowB.cells[5].innerHTML ? 1 : -1
+    )
+    .reverse()
+    .splice(8);
+
+  const difficultWords = rows.filter((word) => +word.cells[5].innerHTML > 0);
+
+  if (difficultWords.length == 0) {
+    dom.cardWrapper.innerHTML =
+      "<p id='message'>There are no difficult words!</p>";
+    setTimeout(() => renderMainPage(cardData[0]), 3000);
+  } else {
+    const wordList = cardData.flat(1);
+    difficultWords.forEach((word) => {
+      const key = word.cells[0].innerHTML;
+      const wordObj = wordList.find((word) => word.word === key);
+      dom.cardWrapper.innerHTML += buildWordCard(wordObj);
+      dom.cardWrapper.id = "difficult";
+    });
+  }
+}
+
+export {
+  showStats,
+  renderStatsPage,
+  setStats,
+  resetStats,
+  sortStats,
+  repeatDifficultWords,
+};

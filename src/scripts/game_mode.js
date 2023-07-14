@@ -25,10 +25,14 @@ function startGame(n) {
       showGameResult("Awesome!", "./icons/success.png", "successful");
     } else {
       playSignal("./audio/failure.mp3");
-      showGameResult(`Mistakes: ${counts.mistakes}`, "./icons/failed.png", "failed");
+      showGameResult(
+        `Mistakes: ${counts.mistakes}`,
+        "./icons/failed.png",
+        "failed"
+      );
       counts.mistakes = 0;
     }
-    setTimeout(() => renderMainPage(cardData[0]), 7000);
+    setTimeout(() => renderMainPage(cardData[0]), 3000);
   } else {
     attempt.audio = attempt.audioList[n];
     attempt.audio.play();
@@ -40,7 +44,7 @@ function startGame(n) {
         addAnswerIcon("./icons/true.png");
         playSignal("./audio/correct.mp3");
         makeCardInactive(evt);
-        setStats(attempt.word, "correct")
+        setStats(attempt.word, "correct");
 
         setTimeout(() => startGame(n + 1), 1000);
 
@@ -54,7 +58,7 @@ function startGame(n) {
       ) {
         playSignal("./audio/error.mp3");
         addAnswerIcon("./icons/false.png");
-        setStats(attempt.audio.closest(".word"), "mistakes")
+        setStats(attempt.audio.closest(".word"), "mistakes");
         counts.mistakes++;
       }
     });
@@ -134,7 +138,7 @@ function makeCardInactive(evt) {
 
 function showGameResult(result, img, cls) {
   const div = document.createElement("div");
-  div.className = 'results';
+  div.className = "results";
   div.innerHTML = `
     <p class="${cls}">${result}</p>
     <img src="${img}">`;
@@ -142,4 +146,4 @@ function showGameResult(result, img, cls) {
   dom.cardWrapper.append(div);
 }
 
-export { startGame, repeatWord, shuffleWords };
+export { startGame, repeatWord, shuffleWords, attempt };
