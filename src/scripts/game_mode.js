@@ -6,7 +6,7 @@ import { setStats } from "./stats.js";
 
 const { answerWrapper, cardWrapper, repeatBtn } = dom;
 
-let { mistakes, iteration, maxIconsQuantityconsQuantity} = {
+let { mistakes, iteration, maxIconsQuantity} = {
   mistakes: 0,
   iteration: 0,
   maxIconsQuantity: 8,
