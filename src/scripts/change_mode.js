@@ -1,52 +1,58 @@
-import { dom } from "./index.js";
-import { startGame, shuffleWords, attempt } from "./game_mode.js";
+import { dom } from "./dom.js";
+import { startGame, shuffleWords } from "./game_mode.js";
+
+const { mode, cardWrapper, startBtn, repeatBtn } = dom;
 
 function clickModeButton() {
-  if (!dom.mode.classList.contains("play")) {
-    dom.mode.classList.add("play");
-    dom.cardWrapper.classList.add("game__mode");
-    dom.startBtn.classList.remove("hide");
-  } else if (dom.mode.classList.contains("play")) {
-    dom.mode.classList.remove("play");
-    dom.cardWrapper.classList.remove("game__mode");
+  if (!mode.classList.contains("play")) {
+    mode.classList.add("play");
+    cardWrapper.classList.add("game__mode");
+    startBtn.classList.remove("hide");
+  } else {
+    mode.classList.remove("play");
+    cardWrapper.classList.remove("game__mode");
+    checkBtnVisibility();
+  }
+}
 
-    if (
-      !dom.startBtn.classList.contains("hide") ||
-      !dom.repeatBtn.classList.contains("hide")
-    ) {
-      dom.startBtn.classList.add("hide");
-      dom.repeatBtn.classList.add("hide");
-    }
+function checkBtnVisibility() {
+  if (
+    !startBtn.classList.contains("hide") ||
+    !repeatBtn.classList.contains("hide")
+  ) {
+    startBtn.classList.add("hide");
+    repeatBtn.classList.add("hide");
   }
 }
 
 function clickPlayButton() {
-  const idx = document.querySelector(".active__link").dataset.idx;
   const cards = document.querySelectorAll(".category");
-  const difficultWords = document.querySelector("#difficult");
-
-  if (
-    idx === "0" &&
-    !dom.cardWrapper.querySelector(".hint") &&
-    !difficultWords
-  ) {
+  if (!isWordsPage()) {
     cards.forEach((card) => {
       showHint(card);
-      setTimeout(function () {
-        deleteHint(card);
-      }, 1000);
+      setTimeout(() => deleteHint(card), 1000);
     });
-  } else if (idx > 0 || difficultWords) {
-    dom.mode.classList.add("hide");
+  } else if (isWordsPage()) {
+    mode.classList.add("hide");
     changeButton();
     shuffleWords();
-    startGame(0);
+    startGame();
+  }
+}
+
+function isWordsPage() {
+  const idx = document.querySelector(".active__link").dataset.idx;
+  const difficultWords = document.querySelector("#difficult");
+  if (idx === "0" && !cardWrapper.querySelector(".hint") && !difficultWords) {
+    return false;
+  } else if (idx > 0 || difficultWords) {
+    return true;
   }
 }
 
 function changeButton() {
-  dom.startBtn.classList.add("hide");
-  dom.repeatBtn.classList.remove("hide");
+  startBtn.classList.add("hide");
+  repeatBtn.classList.remove("hide");
 }
 
 function showHint(card) {

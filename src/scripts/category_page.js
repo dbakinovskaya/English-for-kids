@@ -1,22 +1,32 @@
-import { dom } from "./index.js";
+import { dom } from "./dom.js";
 import { highlightActiveCategory } from "./burger_menu.js";
 
+const {
+  cardWrapper,
+  answerWrapper,
+  repeatBtn,
+  statsWrapper,
+  statsBtnsWrapper,
+  mode,
+  menuList,
+} = dom;
+
 function renderMainPage(list) {
-  dom.cardWrapper.innerHTML = "";
-  dom.answerWrapper.innerHTML = "";
-  dom.repeatBtn.classList.add("hide");
-  dom.statsWrapper.classList.remove("active");
-  dom.statsBtnsWrapper.classList.remove("active");
-  dom.mode.classList.remove("hide");
+  cardWrapper.innerHTML = "";
+  answerWrapper.innerHTML = "";
+  repeatBtn.classList.add("hide");
+  statsWrapper.classList.remove("active");
+  statsBtnsWrapper.classList.remove("active");
+  mode.classList.remove("hide");
   list.forEach((item) => {
-    dom.cardWrapper.innerHTML += buildCategoryCard(item);
+    cardWrapper.innerHTML += buildCategoryCard(item);
   });
   highlightActiveCategory("0");
 }
 
 function renderMenuList(list) {
   list.forEach((item) => {
-    dom.menuList.innerHTML += buildMenuItem(item);
+    menuList.innerHTML += buildMenuItem(item);
   });
 }
 

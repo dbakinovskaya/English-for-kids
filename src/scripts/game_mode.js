@@ -1,68 +1,81 @@
-import { dom } from "./index.js";
+import { dom } from "./dom.js";
 import { clickModeButton } from "./change_mode.js";
 import { renderMainPage } from "./category_page.js";
 import { cardData } from "./get_data.js";
 import { setStats } from "./stats.js";
 
-const counts = {
+const { answerWrapper, cardWrapper, repeatBtn } = dom;
+
+let { mistakes, iteration, maxIconsQuantityconsQuantity} = {
   mistakes: 0,
+  iteration: 0,
+  maxIconsQuantity: 8,
 };
 
-const attempt = {
+let { audioList, audio, word, answer } = {
   audioList: null,
   audio: null,
   word: null,
   answer: null,
 };
 
-function startGame(n) {
-  if (n === attempt.audioList.length) {
-    dom.answerWrapper.innerHTML = "";
+function startGame() {
+  if (iteration === audioList.length) {
+    answerWrapper.innerHTML = "";
     clickModeButton();
-
-    if (counts.mistakes === 0) {
-      playSignal("./audio/success.mp3");
-      showGameResult("Awesome!", "./icons/success.png", "successful");
-    } else {
-      playSignal("./audio/failure.mp3");
-      showGameResult(
-        `Mistakes: ${counts.mistakes}`,
-        "./icons/failed.png",
-        "failed"
-      );
-      counts.mistakes = 0;
-    }
-    setTimeout(() => renderMainPage(cardData[0]), 3000);
+    showResults();
+    iteration = 0;
   } else {
-    attempt.audio = attempt.audioList[n];
-    attempt.audio.play();
-
-    dom.cardWrapper.addEventListener("click", function Iteration(evt) {
-      chooseCard(evt);
-      checkCorrectness(attempt.audio);
-      if (attempt.answer === "correct") {
-        addAnswerIcon("./icons/true.png");
-        playSignal("./audio/correct.mp3");
-        makeCardInactive(evt);
-        setStats(attempt.word, "correct");
-
-        setTimeout(() => startGame(n + 1), 1000);
-
-        dom.cardWrapper.removeEventListener("click", Iteration);
-        attempt.audio = null;
-        attempt.word = null;
-        attempt.answer = null;
-      } else if (
-        attempt.answer === "mistake" &&
-        !attempt.word.classList.contains("inactive")
-      ) {
-        playSignal("./audio/error.mp3");
-        addAnswerIcon("./icons/false.png");
-        setStats(attempt.audio.closest(".word"), "mistakes");
-        counts.mistakes++;
-      }
-    });
+    audio = audioList[iteration];
+    audio.play();
+    cardWrapper.addEventListener("click", startIteration);
   }
+}
+
+function startIteration(evt) {
+  chooseCard(evt);
+  checkCorrectness(audio);
+  addAnswer(evt);
+}
+
+function addAnswer(evt) {
+  if (answer === "correct") {
+    makeCardInactive(evt);
+    addCorrectAnswer();
+    cardWrapper.removeEventListener("click", startIteration);
+    iteration++;
+    setTimeout(() => startGame(), 1000);
+  } else if (answer === "mistake" && !word.classList.contains("inactive")) {
+    addWrongAnswer();
+  }
+}
+
+function addCorrectAnswer() {
+  addAnswerIcon("./icons/true.png");
+  playSignal("./audio/correct.mp3");
+  setStats(word, "correct");
+  audio = null;
+  word = null;
+  answer = null;
+}
+
+function addWrongAnswer() {
+  playSignal("./audio/error.mp3");
+  addAnswerIcon("./icons/false.png");
+  setStats(audio.closest(".word"), "mistakes");
+  mistakes++;
+}
+
+function showResults() {
+  if (mistakes === 0) {
+    playSignal("./audio/success.mp3");
+    showGameResult("Awesome!", "./icons/success.png", "successful");
+  } else {
+    playSignal("./audio/failure.mp3");
+    showGameResult(`Mistakes: ${mistakes}`, "./icons/failed.png", "failed");
+    mistakes = 0;
+  }
+  setTimeout(() => renderMainPage(cardData[0]), 3000);
 }
 
 function shuffleWords() {
@@ -77,47 +90,46 @@ function shuffleWords() {
       shuffleAudio.push(audio[idx]);
     }
   }
-  attempt.audioList = shuffleAudio;
+  audioList = shuffleAudio;
 }
 
 function chooseCard(evt) {
   if (
-    dom.cardWrapper.classList.contains("game__mode") &&
-    !dom.repeatBtn.classList.contains(".hide")
+    cardWrapper.classList.contains("game__mode") &&
+    !repeatBtn.classList.contains(".hide")
   ) {
     const card = evt.target.closest(".word");
     if (card) {
-      attempt.word = card;
+      word = card;
     }
   }
 }
 
 function checkCorrectness(audio) {
-  if (attempt.word && attempt.word.contains(audio)) {
-    attempt.answer = "correct";
-  } else if (attempt.word && !attempt.word.contains(audio)) {
-    attempt.answer = "mistake";
+  if (word && word.contains(audio)) {
+    answer = "correct";
+  } else {
+    answer = "mistake";
   }
 }
 
 function addAnswerIcon(link) {
   cleanImageWrapper();
-
   const div = document.createElement("div");
   div.innerHTML = `<img src='${link}' alt='icon'/>`;
-  dom.answerWrapper.appendChild(div);
+  answerWrapper.appendChild(div);
 }
 
 function cleanImageWrapper() {
-  const images = dom.answerWrapper.querySelectorAll("div");
-  if (images.length === 8) {
-    dom.answerWrapper.removeChild(images[0]);
+  const images = answerWrapper.querySelectorAll("div");
+  if (images.length === maxIconsQuantity) {
+    answerWrapper.removeChild(images[0]);
   }
 }
 
 function repeatWord() {
-  if (attempt.audio) {
-    attempt.audio.play();
+  if (audio) {
+    audio.play();
   }
 }
 
@@ -142,8 +154,8 @@ function showGameResult(result, img, cls) {
   div.innerHTML = `
     <p class="${cls}">${result}</p>
     <img src="${img}">`;
-  dom.cardWrapper.innerHTML = "";
-  dom.cardWrapper.append(div);
+  cardWrapper.innerHTML = "";
+  cardWrapper.append(div);
 }
 
-export { startGame, repeatWord, shuffleWords, attempt };
+export { startGame, repeatWord, shuffleWords };

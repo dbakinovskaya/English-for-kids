@@ -1,25 +1,31 @@
 import { cardData } from "./get_data.js";
-import { dom } from "./index.js";
+import { dom } from "./dom.js";
 import { highlightActiveCategory } from "./burger_menu.js";
 import { renderMainPage } from "./category_page.js";
 import { setStats } from "./stats.js";
+
+const { cardWrapper, statsWrapper, statsBtnsWrapper, mode } = dom;
 
 function renderWordCards(evt) {
   const elem = evt.target;
   const idx = elem.dataset.idx;
   if (idx > 0 && !elem.classList.contains("stats")) {
     highlightActiveCategory(idx);
-    dom.cardWrapper.innerHTML = "";
+    checkStatisticsVisibility();
+    cardWrapper.innerHTML = "";
     cardData[idx].forEach((item) => {
-      dom.cardWrapper.innerHTML += buildWordCard(item);
+      cardWrapper.innerHTML += buildWordCard(item);
     });
-    if (dom.statsWrapper.classList.contains("active")) {
-      dom.statsWrapper.classList.remove("active");
-      dom.statsBtnsWrapper.classList.remove("active");
-      dom.mode.classList.remove("hide");
-    }
   } else if (idx === "0") {
     renderMainPage(cardData[0]);
+  }
+}
+
+function checkStatisticsVisibility() {
+  if (statsWrapper.classList.contains("active")) {
+    statsWrapper.classList.remove("active");
+    statsBtnsWrapper.classList.remove("active");
+    mode.classList.remove("hide");
   }
 }
 
@@ -41,7 +47,7 @@ function playPronounce(evt) {
   const audioWrapper = evt.target.closest(".word");
   if (
     audioWrapper &&
-    !dom.cardWrapper.classList.contains("game__mode") &&
+    !cardWrapper.classList.contains("game__mode") &&
     !audioWrapper.classList.contains("rotated") &&
     !evt.target.closest(".rotate")
   ) {

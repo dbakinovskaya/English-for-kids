@@ -1,12 +1,12 @@
-import { dom } from "./index.js";
+import { dom } from "./dom.js";
+
+const { body, burger, menu } = dom;
 
 function showBurgerMenu() {
-  const scroll = scrollWidth();
-  dom.body.style.marginRight = scroll + "px";
-  console.log(scroll)
-  dom.burger.classList.toggle("active__menu");
-  dom.menu.classList.toggle("active__menu");
-  dom.body.classList.toggle("open__burger");
+  body.style.marginRight = getScrollWidth() + "px";
+  burger.classList.toggle("active__menu");
+  menu.classList.toggle("active__menu");
+  body.classList.toggle("open__burger");
 }
 
 function highlightActiveCategory(idx) {
@@ -16,18 +16,16 @@ function highlightActiveCategory(idx) {
   newLink.classList.add("active__link");
 }
 
-function closeBurgerMenu(evt) {
-  const elem = evt.target;
+function closeBurgerMenu({elem}) {
   if (elem.closest("li") || elem.id == "menu__wrapper") {
-    dom.burger.classList.remove("active__menu");
-    dom.menu.classList.remove("active__menu");
-    dom.body.classList.remove("open__burger");
+    burger.classList.remove("active__menu");
+    menu.classList.remove("active__menu");
+    body.classList.remove("open__burger");
   }
 }
 
-function scrollWidth() {
-  const scroll = window.innerWidth - document.documentElement.clientWidth;
-  return scroll;
+function getScrollWidth() {
+  return window.innerWidth - document.documentElement.clientWidth;
 }
 
 export { showBurgerMenu, closeBurgerMenu, highlightActiveCategory };

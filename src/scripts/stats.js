@@ -1,30 +1,46 @@
-import { dom } from "./index.js";
+import { dom } from "./dom.js";
 import { cardData } from "./get_data";
 import { renderMainPage } from "./category_page.js";
 import { buildWordCard } from "./word_card.js";
 
+const {
+  mode,
+  statsWrapper,
+  statsBtnsWrapper,
+  cardWrapper,
+  tableBody,
+  tableHead,
+  startBtn,
+  repeatBtn,
+} = dom;
+
+const tableColumnsiIdx = {
+  word: 0,
+  wrong: 5,
+};
+
 function showStats() {
-  if (!dom.statsWrapper.classList.contains("active")) {
-    dom.mode.classList.add("hide");
-    dom.statsWrapper.classList.add("active");
-    dom.statsBtnsWrapper.classList.add("active");
-    dom.cardWrapper.innerHTML = "";
-    dom.tableBody.innerHTML = "";
-    dom.startBtn.classList.add("hide");
-    dom.repeatBtn.classList.add("hide");
+  if (!statsWrapper.classList.contains("active")) {
+    mode.classList.add("hide");
+    statsWrapper.classList.add("active");
+    statsBtnsWrapper.classList.add("active");
+    cardWrapper.innerHTML = "";
+    tableBody.innerHTML = "";
+    startBtn.classList.add("hide");
+    repeatBtn.classList.add("hide");
     renderStatsPage(1, 0);
   }
 }
 
-function renderStatsPage(n, idx) {
-  if (n === cardData.length) {
+function renderStatsPage(iteration, idx) {
+  if (iteration === cardData.length) {
     return;
   } else {
-    addDataInStorage(n);
-    cardData[n].forEach((card) => {
-      dom.tableBody.innerHTML += buildTableRow(card, idx);
+    addDataInStorage(iteration);
+    cardData[iteration].forEach((card) => {
+      tableBody.innerHTML += buildTableRow(card, idx);
     });
-    renderStatsPage(n + 1, idx + 1);
+    renderStatsPage(iteration + 1, idx + 1);
   }
 }
 
@@ -78,15 +94,15 @@ function setStats(card, action) {
 
 function resetStats() {
   localStorage.clear();
-  dom.tableBody.innerHTML = " ";
+  tableBody.innerHTML = " ";
   renderStatsPage(1, 0);
 }
 
 function sortStats(evt) {
   const column = evt.target;
-  const sortedColumn = dom.tableHead.querySelector(".sorted");
+  const sortedColumn = tableHead.querySelector(".sorted");
   const idx = +column.dataset.column;
-  const sortedRows = Array.from(dom.tableBody.rows);
+  const sortedRows = Array.from(tableBody.rows);
 
   if (column && !column.classList.contains("sorted")) {
     if (sortedColumn) {
@@ -101,37 +117,36 @@ function sortStats(evt) {
     column.classList.remove("sorted");
     sortedRows.reverse();
   }
-  dom.tableBody.innerHTML = " ";
-  dom.tableBody.append(...sortedRows);
+  tableBody.innerHTML = " ";
+  tableBody.append(...sortedRows);
 }
 
 function repeatDifficultWords() {
-  dom.statsWrapper.classList.remove("active");
-  dom.statsBtnsWrapper.classList.remove("active");
-  dom.mode.classList.remove("hide");
+  statsWrapper.classList.remove("active");
+  statsBtnsWrapper.classList.remove("active");
+  mode.classList.remove("hide");
 
-  const rows = Array.from(dom.tableBody.rows);
+  const rows = Array.from(tableBody.rows);
 
   rows
     .sort((rowA, rowB) =>
-      rowA.cells[5].innerHTML > rowB.cells[5].innerHTML ? 1 : -1
+      rowA.cells[tableColumnsiIdx.wrong].innerHTML > rowB.cells[tableColumnsiIdx.wrong].innerHTML ? 1 : -1
     )
     .reverse()
     .splice(8);
 
-  const difficultWords = rows.filter((word) => +word.cells[5].innerHTML > 0);
+  const difficultWords = rows.filter((word) => +word.cells[tableColumnsiIdx.wrong].innerHTML > 0);
 
   if (difficultWords.length == 0) {
-    dom.cardWrapper.innerHTML =
-      "<p id='message'>There are no difficult words!</p>";
+    cardWrapper.innerHTML = "<p id='message'>There are no difficult words!</p>";
     setTimeout(() => renderMainPage(cardData[0]), 3000);
   } else {
     const wordList = cardData.flat(1);
     difficultWords.forEach((word) => {
-      const key = word.cells[0].innerHTML;
+      const key = word.cells[tableColumnsiIdx.word].innerHTML;
       const wordObj = wordList.find((word) => word.word === key);
-      dom.cardWrapper.innerHTML += buildWordCard(wordObj);
-      dom.cardWrapper.id = "difficult";
+      cardWrapper.innerHTML += buildWordCard(wordObj);
+      cardWrapper.id = "difficult";
     });
   }
 }
